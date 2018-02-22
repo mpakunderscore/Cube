@@ -1,0 +1,14 @@
+{
+  "name": "Cube",
+  "version": "0.1.0",
+  "dependencies": {
+    "onoff": "^1.2.0"
+  },
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "1.8.2"
+  }
+}
