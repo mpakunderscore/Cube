@@ -1,31 +1,303 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
+<head>
 
-        <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-        <title>Cube</title>
+    <title>Cube</title>
 
-        <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/settings.css">
 
-        <!--<link rel="shortcut icon" type="image/x-icon" href="./favicon.png">-->
-        <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+</head>
 
-    </head>
+<body>
 
-    <body>
+<div id="menu" class="noselect">
+    <div onclick="tab('game')">Game</div>
+    <div onclick="tab('gpio')">GPIO</div>
+    <div onclick="tab('scenario')">Scenario</div>
+    <div onclick="tab('logs')">Logs</div>
+    <div onclick="tab('scheme')">Scheme</div>
+    <div onclick="tab('pins')">PINS</div>
+    <div onclick="tab('sounds')">Sounds</div>
 
-        <!--We are using Node.js <script>document.write(process.versions.node)</script>,-->
-        <!--Chromium <script>document.write(process.versions.chrome)</script>,-->
-        <!--and Electron <script>document.write(process.versions.electron)</script>.-->
+    <div id="date" style="margin-left: auto;"></div>
+</div>
 
-    <script>
+<div id="settings">
 
-        require('./index.js')
+    <div id="game">
+        <div id="top">
+            <div id="start" class="button">START</div>
+            <div id="reset" class="button">RESET</div>
+        </div>
 
-    </script>
+        <div id="progress">
+            <div></div>
+        </div>
 
-    </body>
+        <div id="time">
+            <div>
+                Time:<span id="current">14:24</span>/<span id="total">30:00</span>
+            </div>
+            <div>
+                <div class="field" contenteditable="true">0:30</div>
+                <div class="button">ADD</div>
+            </div>
+            <div>
+                <div class="field" contenteditable="true">30:00</div>
+                <div class="button">SET</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gpio">
+        <table>
+            <tr>
+                <th onclick="sortTable(0)">#</th>
+                <th onclick="sortTable(1)">PID</th>
+                <th>Name</th>
+                <th onclick="sortTable(3)" style="float: right">State</th>
+                <th onclick="sortTable(3)" style="padding-left: 20px">T</th>
+            </tr>
+            <tr id="gpio1">
+                <td>1</td>
+                <td>5</td>
+                <td>Магнитный замок вход</td>
+                <td>ON / OFF</td>
+            </tr>
+
+            <tr id="gpio2">
+                <td>2</td>
+                <td>6
+                <td>Общее освещение</td>
+                <td>ON / OFF</td>
+            </tr>
+            <tr id="gpio3">
+                <td>3</td>
+                <td>13</td>
+                <td>УФ-лампа</td>
+                <td>ON / OFF</td>
+            </tr>
+            <tr id="gpio4">
+                <td>4</td>
+                <td>19</td>
+                <td>Замок арфа</td>
+                <td>ON / OFF</td>
+            </tr>
+            <tr id="gpio5">
+                <td>5</td>
+                <td>26</td>
+                <td>Замок люк на крыше</td>
+                <td>ON / OFF</td>
+            </tr>
+            <tr id="gpio6">
+                <td>6</td>
+                <td>12</td>
+                <td>Замок кодовый сейф</td>
+                <td>ON / OFF</td>
+            </tr>
+            <tr id="gpio7">
+                <td>7</td>
+                <td>16</td>
+                <td>Замок паззл</td>
+                <td>ON / OFF</td>
+            </tr>
+            <tr id="gpio8">
+                <td>8</td>
+                <td>20</td>
+                <td>Замок звезды</td>
+                <td>ON / OFF</td>
+            </tr>
+            <tr id="gpio9">
+                <td>9</td>
+                <td>4</td>
+                <td>Сигнал от арфы</td>
+                <td>YES / NO</td>
+                <td>&middot;</td>
+            </tr>
+            <tr id="gpio10">
+                <td>10</td>
+                <td>17</td>
+                <td>Сигнал от “стучалки”</td>
+                <td>YES / NO</td>
+                <td>&middot;</td>
+            </tr>
+            <tr id="gpio11">
+                <td>11</td>
+                <td>27</td>
+                <td>Сигнал от кодового замка</td>
+                <td>YES / NO</td>
+                <td>&middot;</td>
+            </tr>
+            <tr id="gpio12">
+                <td>12</td>
+                <td>22</td>
+                <td>Сигнал от паззла</td>
+                <td>YES / NO</td>
+                <td>&middot;</td>
+            </tr>
+            <tr id="gpio13">
+                <td>13</td>
+                <td>23</td>
+                <td>Сигнал от паззла 2</td>
+                <td>YES / NO</td>
+                <td>&middot;</td>
+            </tr>
+            <tr id="gpio14">
+                <td>14</td>
+                <td>24</td>
+                <td>Сигнал от звезд</td>
+                <td>YES / NO</td>
+                <td>&middot;</td>
+            </tr>
+            <tr id="gpio15">
+                <td>15</td>
+                <td>25</td>
+                <td>Сигнал от подиума с медальонами</td>
+                <td>YES / NO</td>
+                <td>&middot;</td>
+            </tr>
+            <tr id="gpio16">
+                <td>16</td>
+                <td>18</td>
+                <td>Сигнал от “стража”</td>
+                <td>YES / NO</td>
+                <td>&middot;</td>
+            </tr>
+            <tr id="gpio17">
+                <td>17</td>
+                <td>21</td>
+                <td>Глаза “стража”</td>
+                <td>ON / OFF</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="scenario" contenteditable="true">
+        При нажатии кнопки “старт” запускается квест. Устанавливается положение ON на исполнителях 1,2,4,5,6,7,8, OFF на 3 и 17. Проверяется, что на сенсорах 9-16 стоит значение OFF. Если какой-то из них находится в значении ON выходит табличка: “Игра не собрана. Запустить квест?” и ответ да/нет.
+        Запускается саундтрек (на джек идёт)
+        <br/><br/>
+        Далее сценарий действий следующий: система опрашивает сенсоры и выполняет действия в зависимости от изменений их значения.
+        <br/><br/>
+        Следующие задачи выполняются параллельно:
+        <br/><br/>
+        При срабатывании сенсора 9 устанавливаем 4 в значение OFF
+        При срабатывании сенсора 10 устанавливаем 5 в значение OFF
+        При срабатывании сенсора 11 устанавливаем 6 в значение OFF
+        При срабатывании сенсора 14 устанавливаем 8 в значение OFF
+        <br/><br/>
+        Еще одна задача выполняется параллельно этим, но её шаги должны быть последовательны:
+        При срабатывании сенсора 12 устанавливаем 17 в значение ON и начинаем слушать сенсоры 16 и 13. На сенсор 16 реагируем многоразово, при его срабатывании ставим 2 в OFF и 3 в ON, при его деактивации - ставим 2 в ON и 3 в OFF. При срабатывании сенсора 13 ставим 7 в OFF, 3 в OFF, 2 в ON, 17 в OFF, перестаем слушать сенсор 16.
+        <br/><br/>
+        if (9) {
+            4 = false
+        }
+        <br/><br/>
+        if (10) {
+            5 = false
+        }
+        <br/><br/>
+        if (11) {
+            6 = false
+        }
+        <br/><br/>
+        if (14) {
+            8 = false
+        }
+        <br/><br/>
+        if (12) {
+            17 = true
+        }
+        <br/><br/>
+        if (17 && 16) {
+            2 = false
+            3 = true
+        }
+        <br/><br/>
+        if (17 && !16) {
+            2 = true
+            3 = false
+        }
+        <br/><br/>
+        if (13)  {
+            7 = false
+            3 = false
+            2 = true
+            17 = false
+        <br/><br/>
+            <!--TODO-->
+            16 = null это сенсор
+        }
+        <br/><br/>
+
+
+        <br/><br/>
+        Когда все вышеперечисленные задачи выполнены, начинаем слушать сенсор 15, при его срабатывании меняем проигрываемый трек, ставим 2 в OFF, через 10 секунд ставим 1 в OFF.
+        <br/><br/>
+
+        if (?) {
+            15 = false
+        }
+
+        if (15) {
+            меняем проигрываемый трек
+            2 = false
+            wait(10)
+            1 = false
+        }
+
+        if (end) {
+            меняем проигрываемый трек на другой
+            2 = false
+            wait(10)
+            1 = false
+        }
+
+        Если время игры заканчивается раньше, чем игроки прошли - тоже меняем проигрываемый трек на другой, ставим 2 в OFF, через 10 секунд ставим 1 в OFF.
+
+    </div>
+
+    <div id="logs">
+        <div>
+            Some text here
+        </div>
+        <div>
+            More text
+        </div>
+    </div>
+
+    <div id="scheme">
+        <img src="images/quest.png" onclick="img(this)">
+    </div>
+
+    <div id="pins">
+        <img src="images/gpio.png" onclick="img(this)">
+    </div>
+
+    <div id="sounds">
+        Load sounds here
+        <div>Sound 1</div>
+        <div>Sound 2</div>
+        <div>Sound 3</div>
+        <div>Sound 4</div>
+    </div>
+
+</div>
+
+<script>
+
+    //        require('./index.js')
+
+</script>
+
+</body>
+
+<script src="node_modules/jquery/dist/jquery.js" onload="window.$ = window.jQuery = module.exports;"></script>
+
+<script src="js/index.js"></script>
+<script src="js/table.js"></script>
 
 </html>

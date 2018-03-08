@@ -1,0 +1,236 @@
+#settings {
+    position: absolute;
+    /*bottom: ;*/
+    /*right: 0;*/
+    /*min-width: 50%;*/
+    min-height: 100%;
+    height: 100%;
+
+    padding-top: 40px;
+    box-sizing: border-box;
+
+    overflow-x: scroll;
+
+    /*background-color: greenyellow;*/
+
+    display: flex;
+    flex-direction: row;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+
+    /*z-index: 2;*/
+    /*z-index: 1;*/
+
+    line-height: 20px;
+}
+
+[contenteditable]:focus {
+    outline: 0 solid transparent;
+}
+
+
+
+
+#game {
+    /*width: 300px;*/
+    min-height: 100%;
+
+    white-space: nowrap;
+
+    background-color: rgba(145, 239, 145, 0.34);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.24);
+
+    z-index: 2;
+}
+
+#top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+    /*background-color: lightgoldenrodyellow;*/
+
+    padding: 20px;
+}
+
+
+.button {
+    padding: 10px;
+    background-color: lightcyan;
+
+    /*min-width: 40px;*/
+    /*text-align: center;*/
+
+    width: auto !important;
+
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+    cursor: pointer;
+    /*z-index: 1;*/
+}
+
+.button:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    transform: scale(1.01);
+    /*z-index: 2;*/
+}
+
+
+
+
+
+#progress {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+}
+
+#progress div {
+    width: 50%;
+    height: 2px;
+    background-color: #47963c;
+}
+
+
+
+#time {
+    padding: 20px;
+}
+
+#time div {
+
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+
+    padding-bottom: 20px;
+}
+
+#time span {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#time .button {
+    padding: 10px;
+}
+
+#time .field {
+    padding: 10px;
+    height: 20px;
+    background-color: white;
+
+}
+
+
+.field {
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.field:hover {
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.24);
+}
+
+
+
+
+
+
+#gpio {
+    background-color: white;
+    padding: 20px;
+}
+
+#gpio table {
+    white-space: nowrap;
+}
+
+th {
+    text-align: left;
+}
+
+th {
+    padding-right: 10px;
+}
+
+td {
+    padding-right: 10px;
+    /*padding-left: 10px;*/
+}
+
+tr td:last-child {
+    float: right;
+}
+
+
+
+
+
+
+#scenario {
+    min-width: 500px;
+
+    max-height: 100%;
+    overflow-y: scroll;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    /*font-weight: 300;*/
+
+    /*line-height: 20px;*/
+
+
+}
+
+
+
+#logs {
+    min-width: 200px;
+    min-height: 100%;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    background-color: rgba(117, 239, 214, 0.34);
+
+    /*box-shadow: inset 0 1px 3px rgba(0,0,0,0.24);*/
+}
+
+
+
+#sounds {
+
+
+    width: 300px;
+
+    padding: 20px;
+
+    background-color: lightsalmon;
+}
+
+
+
+
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    /*color: #35a8d8;*/
+    color: rgba(11, 98, 181, 0.76);
+}
+
+img {
+    display: block;
+    padding: 20px;
+    height: 500px;
+
+    box-sizing: border-box;
+}
