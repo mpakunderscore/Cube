@@ -1,43 +1,93 @@
-// let Gpio = require('onoff').Gpio,
-//
-//     led = new Gpio(17, 'out'),
-//     button = new Gpio(4, 'in', 'both');
-//
-// button.watch(function(err, value) {
-//
-//     led.writeSync(value);
-// });
+let tabs;
 
-// module.exports = Gpio;
+let scenario;
 
-let tabs = ['game', 'gpio', 'scenario', 'scheme', 'logs', 'pins', 'sounds'];
+let now;
 
-function tab(id) {
+function init() {
 
-    console.log(id)
+    window.$ = window.jQuery = module.exports;
+    activeTab();
+    activeScenario();
+
+    log('init')
+}
+
+function tab(element) {
+
+    let id = element.innerText.toLowerCase();
+
+    // console.log(id)
 
     if (tabs.indexOf(id) < 0) {
 
         tabs.push(id);
         $("#" + id).css('display', 'block');
+        $(element).addClass('active');
 
-        console.log('Show: ' + id);
+        // console.log('Show: ' + id);
 
     } else {
 
         tabs.splice(tabs.indexOf(id), 1);
 
         $("#" + id).css('display', 'none');
+        $(element).removeClass('active');
 
-        console.log('Hide: ' + id);
-
+        // console.log('Hide: ' + id);
     }
 
-    console.log(tabs)
+    localStorage.setItem('tabs', JSON.stringify(tabs));
+
+    // console.log(tabs)
+}
+
+function activeTab() {
+
+    tabs = JSON.parse(localStorage.getItem('tabs'));
+
+    console.log(tabs);
+
+    if (tabs === null) {
+        tabs = ['game'];
+    }
+
+    $('#menu > div').each(function () {
+
+        let tab = this.innerText.toLowerCase();
+
+        console.log();
+        // console.log(tabs)
+
+        if (tabs.indexOf(tab) > -1) {
+            $(this).addClass('active');
+        } else {
+            $('#' + tab).css('display', 'none');
+        }
+    });
+}
+
+function activeScenario() {
+
+    scenario = getScenario();
+
+    // console.log(scenario);
+
+    if (scenario === null) {
+        scenario = 'if (4) { 5 = false }';
+    }
+
+    $('#scenario > div')[0].innerText = scenario;
+
+    // console.log($('#scenario > div')[0].innerHTML)
 }
 
 function img(id) {
-    // $(id).css('min-height', '10%');
+    // $(id).css('height', '100%');
+}
+
+function log(text) {
+    $('#logs').prepend($('<div>' + now + ' '  + text + '</div>'))
 }
 
 function checkTime(i) {
@@ -49,16 +99,27 @@ function checkTime(i) {
 
 function startTime() {
 
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
+    let t;
+
+    let today = new Date();
+    let h = today.getHours();
+    let m = today.getMinutes();
+    let s = today.getSeconds();
+
     // add a zero in front of numbers<10
     m = checkTime(m);
     s = checkTime(s);
+
+    now = h + ":" + m + ":" + s;
+
     document.getElementById('date').innerHTML = h + ":" + m + ":" + s;
     t = setTimeout(function() {
         startTime()
     }, 500);
 }
+
 startTime();
+
+// $( document ).ready(function() {
+//     console.log( "ready!" );
+// });

@@ -9,7 +9,7 @@
     padding-top: 40px;
     box-sizing: border-box;
 
-    overflow-x: scroll;
+    overflow: hidden;
 
     /*background-color: greenyellow;*/
 
@@ -32,7 +32,7 @@
 
 
 #game {
-    /*width: 300px;*/
+    min-width: 200px;
     min-height: 100%;
 
     white-space: nowrap;
@@ -43,14 +43,18 @@
     z-index: 2;
 }
 
-#top {
+.top {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
+    padding: 20px;
+}
 
-    /*background-color: lightgoldenrodyellow;*/
-
+.bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 20px;
 }
 
@@ -60,9 +64,9 @@
     background-color: lightcyan;
 
     /*min-width: 40px;*/
-    /*text-align: center;*/
+    text-align: center;
 
-    width: auto !important;
+    width: auto;
 
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -88,7 +92,7 @@
 }
 
 #progress div {
-    width: 50%;
+    width: 0;
     height: 2px;
     background-color: #47963c;
 }
@@ -158,46 +162,66 @@ th {
 }
 
 td {
+    padding: 0;
     padding-right: 10px;
     /*padding-left: 10px;*/
 }
 
 tr td:last-child {
     float: right;
+    cursor: pointer;
 }
 
-
+tr td:last-child:hover {
+    color: red;
+}
 
 
 
 
 #scenario {
-    min-width: 500px;
+    min-width: 600px;
 
     max-height: 100%;
     overflow-y: scroll;
 
-    padding: 20px;
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
 
-    /*font-weight: 300;*/
+    font-weight: 300;
 
     /*line-height: 20px;*/
 
+    letter-spacing: 1px;
 
+    /*font-variant-ligatures: no-common-ligatures;*/
+
+    background-color: lightgrey;
+}
+
+#scenario > div {
+    padding: 20px;
 }
 
 
 
 #logs {
-    min-width: 200px;
-    min-height: 100%;
+    min-width: 100%;
+    white-space: nowrap;
+    max-height: 100%;
+
+    /*min-height: 1000px;*/
+    overflow-y: scroll;
+
+    font-weight: 300;
 
     padding: 20px;
     box-sizing: border-box;
 
     background-color: rgba(117, 239, 214, 0.34);
 
+    letter-spacing: 1px;
+
+    /*line-height: 22px;*/
     /*box-shadow: inset 0 1px 3px rgba(0,0,0,0.24);*/
 }
 

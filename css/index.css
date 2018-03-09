@@ -55,7 +55,11 @@ body {
 }
 
 #menu div:hover {
-    color: red;
+    color: #3ccc5f;
+}
+
+.active {
+    color: #20b46d;
 }
 
 .noselect {
