@@ -51,15 +51,17 @@ body {
 
     cursor: pointer;
 
+    color: rgba(0, 0, 0, 0.4);
+
     /*box-shadow: 5px 10px #888888;*/
 }
 
 #menu div:hover {
-    color: #3ccc5f;
+    color: black;
 }
 
-.active {
-    color: #20b46d;
+#menu div.active {
+    color: black;
 }
 
 .noselect {
@@ -70,4 +72,69 @@ body {
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+}
+
+#logo {
+    width: 60px;
+    height: 60px;
+
+    margin: 20px auto;
+
+
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {  transform: rotate(0deg);  }
+    to {  transform: rotate(360deg);  }
+}
+
+.rotating {
+    animation: rotating 2s linear infinite;
+}
+
+.button {
+    padding: 8px;
+    background-color: rgba(144, 238, 144, 0.86);
+    color: green;
+
+    min-width: 60px;
+    text-align: center;
+
+    box-sizing: border-box;
+
+    border: 2px solid #1d520b;
+
+    cursor: pointer;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.button:hover {
+    color: #006000;
+}
+
+.shadow {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.5s;
+}
+
+.shadow:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.shadow:active {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.off {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24) !important;
+    cursor: default;
+
+    opacity: 0.3;
 }
