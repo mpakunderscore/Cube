@@ -1,6 +1,6 @@
 const electron = require('electron');
 // Module to control application life.
-const app = electron.app
+const app = electron.app;
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
 
@@ -13,7 +13,14 @@ let mainWindow;
 
 function createWindow() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({width: 1000, height: 600, resizable: true});
+    mainWindow = new BrowserWindow({
+        width: 1000,
+        height: 600,
+        // titleBarStyle: 'hidden-inset',
+        // resizable: true,
+        // frame: false,
+        // transparent : true,
+    });
 
     // , titleBarStyle: 'hidden-inset'}
 
@@ -27,7 +34,7 @@ function createWindow() {
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
 
-    mainWindow.setMenu(null);
+    // mainWindow.setMenu(null);
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function () {

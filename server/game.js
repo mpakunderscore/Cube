@@ -9,14 +9,14 @@ function startGame() {
     if (game)
         return;
 
-    log('start game')
+    log('start game');
 
     game = true;
     time = 0;
 
-    $('#progress > div').css('width', '0');
-
     totalCurrent = totalDefault;
+
+    $('#progress > div').css('width', '0');
 
     $('#total').text(fromSec(totalCurrent));
 
@@ -31,7 +31,7 @@ function startGame() {
 
 function stopGame() {
 
-    log('stop game')
+    log('stop game');
 
     game = false;
 
@@ -49,6 +49,10 @@ function resetGame() {
     time = 0;
 
     $('#current').text(fromSec(time));
+
+    $('#total').text(fromSec(totalDefault));
+
+    $('#progress > div').css('width', 0);
 }
 
 function startGameTime() {
@@ -57,7 +61,13 @@ function startGameTime() {
 
         updateTime();
 
-        $('#progress > div').css('width', (time / total) * 100 + '%')
+        let progress = (time / totalCurrent);
+
+        $('#progress > div').css('width', progress * 100 + '%');
+
+        setTimeout(function() {
+            startGameTime()
+        }, 1000);
 
         time = time + 1;
 
@@ -68,10 +78,6 @@ function startGameTime() {
             stopGame();
             return;
         }
-
-        setTimeout(function() {
-            startGameTime()
-        }, 1000);
     }
 }
 

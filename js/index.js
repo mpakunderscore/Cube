@@ -8,7 +8,7 @@ function init() {
 
     window.$ = window.jQuery = module.exports;
     activeTab();
-    activeScenario();
+    initScenario();
 
     log('init')
 }
@@ -67,7 +67,7 @@ function activeTab() {
     });
 }
 
-function activeScenario() {
+function initScenario() {
 
     scenario = getScenario();
 
@@ -78,6 +78,8 @@ function activeScenario() {
     }
 
     $('#scenario > div')[0].innerText = scenario;
+
+    parseScenario(scenario);
 
     // console.log($('#scenario > div')[0].innerHTML)
 }

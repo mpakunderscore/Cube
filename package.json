@@ -2,8 +2,11 @@
   "name": "Cube",
   "version": "0.1.0",
   "dependencies": {
+    "electron-packager": "^11.1.0",
+    "ip": "^1.1.5",
     "jquery": "^3.3.1",
-    "onoff": "^1.2.0"
+    "onoff": "^1.2.0",
+    "ping": "^0.2.2"
   },
   "main": "main.js",
   "scripts": {
