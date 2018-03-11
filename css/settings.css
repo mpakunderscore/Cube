@@ -90,11 +90,32 @@
 
 #gpio {
     background-color: white;
+    cursor: default;
 }
 
 #gpio table {
     white-space: nowrap;
     padding: 20px;
+}
+
+#gpio span {
+    cursor: pointer;
+}
+
+#gpio .state {
+    color: lightgrey;
+}
+
+#gpio span:hover {
+    /*color: red;*/
+}
+
+#gpio .active {
+    color: black;
+}
+
+#gpio .white {
+    color: white;
 }
 
 th {
@@ -117,7 +138,8 @@ tr td:last-child {
 }
 
 tr td:last-child:hover {
-    color: red;
+    /*color: red;*/
+    /*padding-left: 10px;*/
 }
 
 

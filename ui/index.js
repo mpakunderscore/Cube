@@ -1,4 +1,4 @@
-let tabs;
+let tabs = [];
 
 let scenario;
 
@@ -13,6 +13,7 @@ function init() {
 
     initTabs();
     initScenario();
+    initGPIO();
 
     log('init')
 }
@@ -41,20 +42,16 @@ function tab(element) {
         // console.log('Hide: ' + id);
     }
 
-    localStorage.setItem('tabs', JSON.stringify(tabs));
+    setTabs(tabs);
 
     // console.log(tabs)
 }
 
 function initTabs() {
 
-    tabs = JSON.parse(localStorage.getItem('tabs'));
+    tabs = getTabs();
 
     console.log(tabs);
-
-    if (tabs === null) {
-        tabs = ['game'];
-    }
 
     $('#menu > div').each(function () {
 
@@ -102,6 +99,43 @@ function checkTime(i) {
         i = "0" + i;
     }
     return i;
+}
+
+function initGPIO() {
+
+    $('#gpio > table').first().append($('<tr> <th onclick="sortTable(0)">#</th> <th onclick="sortTable(1)">PID</th> <th>Name</th> <th onclick="sortTable(3)" style="float: right">State</th> <th onclick="sortTable(3)" style="padding-left: 20px">T</th> </tr>'))
+
+    for (let i in gpioState) {
+
+        let id =  gpioState[i].id;
+
+        let tr = $('<tr id="gpio'+ gpioState[i].id +'"></tr>');
+        tr.append('<td>' + gpioState[i].id + '</td>');
+        tr.append('<td>' + gpioState[i].pid + '</td>');
+        tr.append('<td>' + gpioState[i].name + '</td>');
+        tr.append('<td class="state">' + (gpioState[i].type ?
+
+            '<span class="' + (gpioState[i].state ? 'active' : '') + '">YES</span>' +
+            '<span class="' + (gpioState[i].state === null ? 'active' : '') + '"> / </span>' +
+            '<span class="' + (gpioState[i].state === false ? 'active' : '') + '">NO</span>'
+            :
+            '<span class="' + (gpioState[i].state ? 'active' : '') + '" onclick="changeGPIOState(' + id + ')">ON</span>' +
+            ' / ' +
+            '<span class="' + (!gpioState[i].state ? 'active' : '') + '" onclick="changeGPIOState(' + id + ')">OFF</span>') + '</td>');
+        tr.append('<td><span class="' + (gpioState[i].type ? 'white' : '') +'">&middot;<span>');
+
+        $('#gpio > table').first().append(tr)
+    }
+}
+
+function changeGPIOState(id) {
+
+    console.log(id)
+    gpioState[id].state = !gpioState[id].state;
+
+    //if come back as true
+    $('#gpio > table').first().html('')
+    initGPIO();
 }
 
 function startTime() {

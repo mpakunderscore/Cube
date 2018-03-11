@@ -62,124 +62,6 @@
 
         <div id="gpio">
             <table>
-                <tr>
-                    <th onclick="sortTable(0)">#</th>
-                    <th onclick="sortTable(1)">PID</th>
-                    <th>Name</th>
-                    <th onclick="sortTable(3)" style="float: right">State</th>
-                    <th onclick="sortTable(3)" style="padding-left: 20px">T</th>
-                </tr>
-                <tr id="gpio1">
-                    <td>1</td>
-                    <td>5</td>
-                    <td>Магнитный замок вход</td>
-                    <td>ON / OFF</td>
-                </tr>
-
-                <tr id="gpio2">
-                    <td>2</td>
-                    <td>6
-                    <td>Общее освещение</td>
-                    <td>ON / OFF</td>
-                </tr>
-                <tr id="gpio3">
-                    <td>3</td>
-                    <td>13</td>
-                    <td>УФ-лампа</td>
-                    <td>ON / OFF</td>
-                </tr>
-                <tr id="gpio4">
-                    <td>4</td>
-                    <td>19</td>
-                    <td>Замок арфа</td>
-                    <td>ON / OFF</td>
-                </tr>
-                <tr id="gpio5">
-                    <td>5</td>
-                    <td>26</td>
-                    <td>Замок люк на крыше</td>
-                    <td>ON / OFF</td>
-                </tr>
-                <tr id="gpio6">
-                    <td>6</td>
-                    <td>12</td>
-                    <td>Замок кодовый сейф</td>
-                    <td>ON / OFF</td>
-                </tr>
-                <tr id="gpio7">
-                    <td>7</td>
-                    <td>16</td>
-                    <td>Замок паззл</td>
-                    <td>ON / OFF</td>
-                </tr>
-                <tr id="gpio8">
-                    <td>8</td>
-                    <td>20</td>
-                    <td>Замок звезды</td>
-                    <td>ON / OFF</td>
-                </tr>
-                <tr id="gpio9">
-                    <td>9</td>
-                    <td>4</td>
-                    <td>Сигнал от арфы</td>
-                    <td>YES / NO</td>
-                    <td>&middot;</td>
-                </tr>
-                <tr id="gpio10">
-                    <td>10</td>
-                    <td>17</td>
-                    <td>Сигнал от “стучалки”</td>
-                    <td>YES / NO</td>
-                    <td>&middot;</td>
-                </tr>
-                <tr id="gpio11">
-                    <td>11</td>
-                    <td>27</td>
-                    <td>Сигнал от кодового замка</td>
-                    <td>YES / NO</td>
-                    <td>&middot;</td>
-                </tr>
-                <tr id="gpio12">
-                    <td>12</td>
-                    <td>22</td>
-                    <td>Сигнал от паззла</td>
-                    <td>YES / NO</td>
-                    <td>&middot;</td>
-                </tr>
-                <tr id="gpio13">
-                    <td>13</td>
-                    <td>23</td>
-                    <td>Сигнал от паззла 2</td>
-                    <td>YES / NO</td>
-                    <td>&middot;</td>
-                </tr>
-                <tr id="gpio14">
-                    <td>14</td>
-                    <td>24</td>
-                    <td>Сигнал от звезд</td>
-                    <td>YES / NO</td>
-                    <td>&middot;</td>
-                </tr>
-                <tr id="gpio15">
-                    <td>15</td>
-                    <td>25</td>
-                    <td>Сигнал от подиума с медальонами</td>
-                    <td>YES / NO</td>
-                    <td>&middot;</td>
-                </tr>
-                <tr id="gpio16">
-                    <td>16</td>
-                    <td>18</td>
-                    <td>Сигнал от “стража”</td>
-                    <td>YES / NO</td>
-                    <td>&middot;</td>
-                </tr>
-                <tr id="gpio17">
-                    <td>17</td>
-                    <td>21</td>
-                    <td>Глаза “стража”</td>
-                    <td>ON / OFF</td>
-                </tr>
             </table>
 
             <div class="bottom">
@@ -257,15 +139,13 @@
                 Sounds
             </div>
 
-            <!--</div>-->
-
             <div class="bottom">
                 <div class="button shadow" onclick="addSound()">ADD</div>
             </div>
         </div>
 
         <div id="camera">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/aELbc4mcGlI?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/aELbc4mcGlI?rel=0&amp;showinfo=0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
         </div>
 
         <div id="help">
@@ -285,6 +165,7 @@
     <script src="ui/sort.js"></script>
     <script src="ui/store.js"></script>
 
+    <script src="ui/data.js"></script>
     <!--<script src="js/gpio.js"></script>-->
     <!--<script src="server/game.js"></script>-->
 

@@ -1,4 +1,4 @@
-let game = false;
+let gameState = false;
 let time = 0;
 
 let totalDefault = 1800;
@@ -6,12 +6,12 @@ let totalCurrent = totalDefault;
 
 function startGame() {
 
-    if (game)
+    if (gameState)
         return;
 
     log('start game');
 
-    game = true;
+    gameState = true;
     time = 0;
 
     totalCurrent = totalDefault;
@@ -33,7 +33,7 @@ function stopGame() {
 
     log('stop game');
 
-    game = false;
+    gameState = false;
 
     $('#start').removeClass('off');
 
@@ -57,7 +57,7 @@ function resetGame() {
 
 function startGameTime() {
 
-    if (game) {
+    if (gameState) {
 
         updateTime();
 
