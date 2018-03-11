@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
 
-    <title></title>
+    <title>Cube</title>
 
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/settings.css">
@@ -20,10 +20,11 @@
         <div onclick="tab(this)">GPIO</div>
         <div onclick="tab(this)">Scenario</div>
         <div onclick="tab(this)">Logs</div>
-        <div onclick="tab(this)">Scheme</div>
-        <div onclick="tab(this)">PINS</div>
+        <!--<div onclick="tab(this)">Scheme</div>-->
+        <!--<div onclick="tab(this)">PINS</div>-->
         <div onclick="tab(this)">Sounds</div>
         <div onclick="tab(this)">Camera</div>
+        <div onclick="tab(this)">Help</div>
 
         <div id="date" style="margin-left: auto;" onclick="console.log(new Date())"></div>
 
@@ -250,14 +251,6 @@
             <div> 1:51:55 #4 pid19 State OFF</div>
         </div>
 
-        <div id="scheme">
-            <img src="images/quest.png" onclick="img(this)">
-        </div>
-
-        <div id="pins">
-            <img src="images/gpio.png" onclick="img(this)">
-        </div>
-
         <div id="sounds">
 
             <div class="top">
@@ -271,18 +264,28 @@
             </div>
         </div>
 
+        <div id="camera">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/aELbc4mcGlI?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+
+        <div id="help">
+            <!--<img src="images/quest.png" onclick="img(this)" style="float: left;">-->
+            <img src="images/gpio.png" onclick="img(this)" style="float: left;">
+        </div>
+
+
+
     </div>
 
 </body>
 
     <script src="node_modules/jquery/dist/jquery.js"></script>
 
-    <script src="js/index.js"></script>
-    <script src="js/sort.js"></script>
-    <script src="js/gpioTable.js"></script>
+    <script src="ui/index.js"></script>
+    <script src="ui/sort.js"></script>
+    <script src="ui/store.js"></script>
+
     <!--<script src="js/gpio.js"></script>-->
-    <script src="js/store.js"></script>
-    <script src="js/scenario.js"></script>
-    <script src="server/game.js"></script>
+    <!--<script src="server/game.js"></script>-->
 
 </html>

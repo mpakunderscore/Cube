@@ -80,7 +80,11 @@ body {
 
     margin: 20px auto;
     padding: 0;
+}
 
+#logo:hover {
+    animation: rotating 2s linear infinite;
+    box-shadow: none;
 }
 
 @-webkit-keyframes rotating /* Safari and Chrome */ {
@@ -178,4 +182,10 @@ body {
 
 
     /*background-color: #9cc2cf;*/
+}
+
+.row > div {
+    /*float: left;*/
+    /*display: flex !important;*/
+    /*flex-direction: row !important;*/
 }

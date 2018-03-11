@@ -6,8 +6,12 @@ let now;
 
 function init() {
 
-    window.$ = window.jQuery = module.exports;
-    activeTab();
+    try {
+        window.$ = window.jQuery = module.exports;
+    } catch(err) {
+    }
+
+    initTabs();
     initScenario();
 
     log('init')
@@ -42,7 +46,7 @@ function tab(element) {
     // console.log(tabs)
 }
 
-function activeTab() {
+function initTabs() {
 
     tabs = JSON.parse(localStorage.getItem('tabs'));
 
@@ -61,6 +65,7 @@ function activeTab() {
 
         if (tabs.indexOf(tab) > -1) {
             $(this).addClass('active');
+            $('#' + tab).css('display', 'block');
         } else {
             $('#' + tab).css('display', 'none');
         }
@@ -79,7 +84,7 @@ function initScenario() {
 
     $('#scenario > div')[0].innerText = scenario;
 
-    parseScenario(scenario);
+    // parseScenario(scenario);
 
     // console.log($('#scenario > div')[0].innerHTML)
 }
