@@ -1,4 +1,4 @@
-let gpioState = {
+exports.gpioState = {
 
     "1": {id: "1", pid: "5", name: "Магнитный замок вход", state: true, type: false},
     "2": {id: "2", pid: "6", name: "Общее освещение", state: true, type: false},

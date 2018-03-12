@@ -1,4 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&subset=cyrillic,cyrillic-ext,latin-ext');
+/*@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&subset=cyrillic,cyrillic-ext,latin-ext');*/
+
+@font-face {
+    font-family: Open sans;
+    src: url(../fonts/Open_Sans/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: Open sans;
+    src: url(../fonts/Open_Sans/OpenSans-Light.ttf);
+    font-weight: 300;
+}
 
 body {
     margin: 0;

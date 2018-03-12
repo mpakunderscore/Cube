@@ -1,39 +1,30 @@
-let Gpio = require('onoff').Gpio;
+let data = require('./data.js');
+
+// let Gpio = require('onoff').Gpio;
+
+let pins = {};
+
+exports.pins = pins;
 
 // https://www.npmjs.com/package/onoff
 
-// In addition to specifying that the button is an input,
-// the constructors optional third argument is used to specify that 'both'
-// rising and falling interrupt edges should be configured for the button GPIO
-// as both button presses and releases should be handled.
+for (let i in data.gpioState) {
 
-//PID or GPIO green on PINS image
-let gpio4 = new Gpio(4, 'in', 'both');
-let gpio5 = new Gpio(5, 'out');
-let gpio6 = new Gpio(6, 'out');
+    let id = data.gpioState[i].id;
 
-let gpio12 = new Gpio(12, 'out');
-let gpio13 = new Gpio(13, 'out');
+    pins[id] = data.gpioState[i];
 
-let gpio16 = new Gpio(16, 'out');
+    continue;
 
-let gpio17 = new Gpio(17, 'in', 'both');
-let gpio18 = new Gpio(18, 'in', 'both');
+    pins[id].interface = !data.gpioState[i].type ? new Gpio(pins[id].pid, 'out') : new Gpio(pins[id].pid, 'in', 'both');
 
-let gpio19 = new Gpio(19, 'in', 'both');
-let gpio20 = new Gpio(20, 'in', 'both');
-let gpio21 = new Gpio(21, 'in', 'both');
-let gpio22 = new Gpio(17, 'out');
-let gpio23 = new Gpio(17, 'out');
-let gpio24 = new Gpio(17, 'out');
-let gpio25 = new Gpio(17, 'out');
-let gpio26 = new Gpio(17, 'out');
-let gpio27 = new Gpio(17, 'out');
+    if (data.gpioState[i].type) {
 
+        pins[id].interface.watch(function (err, value) {
+            console.log(data.gpioState[i].id + ' | ' + data.gpioState[i].pid + ' | ' + value);
+        })
 
-button.watch(function(err, value) {
-
-    led.writeSync(value);
-});
-
-module.exports = Gpio;
+    } else {
+        pins[id].interface.writeSync(1);
+    }
+}

@@ -26,6 +26,8 @@
         <div onclick="tab(this)">Camera</div>
         <div onclick="tab(this)">Help</div>
 
+        <div onclick="location.reload()">R</div>
+
         <div id="date" style="margin-left: auto;" onclick="console.log(new Date())"></div>
 
     </div>
@@ -145,7 +147,7 @@
         </div>
 
         <div id="camera">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/aELbc4mcGlI?rel=0&amp;showinfo=0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+            <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/aELbc4mcGlI?rel=0&amp;showinfo=0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>-->
         </div>
 
         <div id="help">
@@ -154,18 +156,18 @@
         </div>
 
 
-
     </div>
 
 </body>
 
     <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/socket.io-client/dist/socket.io.slim.js"></script>
 
     <script src="ui/index.js"></script>
-    <script src="ui/sort.js"></script>
-    <script src="ui/store.js"></script>
+    <script src="ui/utils/sort.js"></script>
+    <script src="ui/utils/store.js"></script>
 
-    <script src="ui/data.js"></script>
+    <script src="ui/api.js"></script>
     <!--<script src="js/gpio.js"></script>-->
     <!--<script src="server/game.js"></script>-->
 

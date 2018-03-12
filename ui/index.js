@@ -4,6 +4,8 @@ let scenario;
 
 let now;
 
+let gpioState = {};
+
 function init() {
 
     try {
@@ -51,7 +53,7 @@ function initTabs() {
 
     tabs = getTabs();
 
-    console.log(tabs);
+    // console.log(tabs);
 
     $('#menu > div').each(function () {
 
@@ -103,6 +105,7 @@ function checkTime(i) {
 
 function initGPIO() {
 
+    $('#gpio > table').first().html('');
     $('#gpio > table').first().append($('<tr> <th onclick="sortTable(0)">#</th> <th onclick="sortTable(1)">PID</th> <th>Name</th> <th onclick="sortTable(3)" style="float: right">State</th> <th onclick="sortTable(3)" style="padding-left: 20px">T</th> </tr>'))
 
     for (let i in gpioState) {
@@ -130,11 +133,11 @@ function initGPIO() {
 
 function changeGPIOState(id) {
 
-    console.log(id)
+    // console.log(id)
     gpioState[id].state = !gpioState[id].state;
 
     //if come back as true
-    $('#gpio > table').first().html('')
+    $('#gpio > table').first().html('');
     initGPIO();
 }
 
