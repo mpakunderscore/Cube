@@ -2,7 +2,6 @@ let express = require('express');
 
 let gpio = require('./server/gpio');
 
-
 let app = express();
 
 app.use('/', express.static(__dirname));
@@ -25,6 +24,9 @@ io.on('connection', (socket) => {
 
     socket.on('sound', (message) => {});
 
-
     socket.on('disconnect', () => {});
 });
+
+gpio.broadcasts = io.broadcast.emit('state', JSON.stringify(gpio.pins));
+
+

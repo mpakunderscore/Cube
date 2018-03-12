@@ -6,6 +6,8 @@ let pins = {};
 
 exports.pins = pins;
 
+exports.broadcats;
+
 // https://www.npmjs.com/package/onoff
 
 for (let i in data.gpioState) {
@@ -13,8 +15,6 @@ for (let i in data.gpioState) {
     let id = data.gpioState[i].id;
 
     pins[id] = data.gpioState[i];
-
-    continue;
 
     pins[id].interface = !data.gpioState[i].type ? new Gpio(pins[id].pid, 'out') : new Gpio(pins[id].pid, 'in', 'both');
 
@@ -26,5 +26,6 @@ for (let i in data.gpioState) {
 
     } else {
         pins[id].interface.writeSync(1);
+        exports.broadcast();
     }
 }

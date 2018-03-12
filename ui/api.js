@@ -5,5 +5,5 @@ let socket = io(ip, {secure: false});
 
 socket.on('state', (state) => {
     gpioState = JSON.parse(state);
-    initGPIO();
+    renderGPIO();
 });

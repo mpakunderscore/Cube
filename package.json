@@ -1,6 +1,6 @@
 {
   "name": "Cube",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "dependencies": {
     "electron-packager": "^11.1.0",
     "express": "^4.16.2",

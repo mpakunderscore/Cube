@@ -15,7 +15,7 @@ function init() {
 
     initTabs();
     initScenario();
-    initGPIO();
+    renderGPIO();
 
     log('init')
 }
@@ -103,7 +103,7 @@ function checkTime(i) {
     return i;
 }
 
-function initGPIO() {
+function renderGPIO() {
 
     $('#gpio > table').first().html('');
     $('#gpio > table').first().append($('<tr> <th onclick="sortTable(0)">#</th> <th onclick="sortTable(1)">PID</th> <th>Name</th> <th onclick="sortTable(3)" style="float: right">State</th> <th onclick="sortTable(3)" style="padding-left: 20px">T</th> </tr>'))
@@ -138,7 +138,7 @@ function changeGPIOState(id) {
 
     //if come back as true
     $('#gpio > table').first().html('');
-    initGPIO();
+    renderGPIO();
 }
 
 function startTime() {
