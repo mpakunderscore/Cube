@@ -105,8 +105,12 @@ function checkTime(i) {
 
 function renderGPIO() {
 
+    if (typeof $ === 'undefined') {
+        return;
+    }
+
     $('#gpio > table').first().html('');
-    $('#gpio > table').first().append($('<tr> <th onclick="sortTable(0)">#</th> <th onclick="sortTable(1)">PID</th> <th>Name</th> <th onclick="sortTable(3)" style="float: right">State</th> <th onclick="sortTable(3)" style="padding-left: 20px">T</th> </tr>'))
+    $('#gpio > table').first().append($('<tr> <th onclick="sortTable(0)">#</th> <th onclick="sortTable(1)">PID</th> <th>Name</th> <th onclick="sortTable(3)" style="float: right">State</th> <th onclick="sortTable(3)" style="padding-left: 20px"></th> </tr>'))
 
     for (let i in gpioState) {
 
@@ -116,16 +120,16 @@ function renderGPIO() {
         tr.append('<td>' + gpioState[i].id + '</td>');
         tr.append('<td>' + gpioState[i].pid + '</td>');
         tr.append('<td>' + gpioState[i].name + '</td>');
-        tr.append('<td class="state">' + (gpioState[i].type ?
+        tr.append('<td class="state">' + (!gpioState[i].type ?
 
-            '<span class="' + (gpioState[i].state ? 'active' : '') + '">YES</span>' +
-            '<span class="' + (gpioState[i].state === null ? 'active' : '') + '"> / </span>' +
-            '<span class="' + (gpioState[i].state === false ? 'active' : '') + '">NO</span>'
+            (gpioState[i].state === true ? '<span class="active on">YES</span>' : '') +
+            (gpioState[i].state === null ? '<span class="active">?</span>' : '') +
+            (gpioState[i].state === false ? '<span class="">NO</span>' : '')
             :
-            '<span class="' + (gpioState[i].state ? 'active' : '') + '" onclick="changeGPIOState(' + id + ')">ON</span>' +
+            '<span class="' + (gpioState[i].state ? 'active' : '') + '" onclick="switchPIN(' + id + ')">ON</span>' +
             ' / ' +
-            '<span class="' + (!gpioState[i].state ? 'active' : '') + '" onclick="changeGPIOState(' + id + ')">OFF</span>') + '</td>');
-        tr.append('<td><span class="' + (gpioState[i].type ? 'white' : '') +'">&middot;<span>');
+            '<span class="' + (!gpioState[i].state ? 'active' : '') + '" onclick="switchPIN(' + id + ')">OFF</span>') + '</td>');
+        tr.append('<td><span class="' + (gpioState[i].type ? '' : 'transparent') +'">&middot;<span>');
 
         $('#gpio > table').first().append(tr)
     }
@@ -137,7 +141,7 @@ function changeGPIOState(id) {
     gpioState[id].state = !gpioState[id].state;
 
     //if come back as true
-    $('#gpio > table').first().html('');
+    // $('#gpio > table').first().html('');
     renderGPIO();
 }
 

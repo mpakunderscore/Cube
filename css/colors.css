@@ -1,0 +1,76 @@
+#menu {
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 400;
+}
+
+#menu div:hover {
+    color: black;
+}
+
+#menu div.active {
+    color: black;
+}
+
+
+.button {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #1d520b;
+    font-weight: 400;
+}
+
+
+
+
+#game {
+    background-color: rgba(84, 192, 88, 0.65);
+}
+
+#progress div {
+    background-color: #4CAF50;
+}
+
+#gpio {
+    background-color: rgba(28, 131, 233, 0.73);
+}
+
+#gpio tr:hover {
+    background-color: rgba(211, 211, 211, 0.1);
+}
+
+#gpio .state {
+    color: rgba(0, 0, 0, 0.2);
+}
+
+#gpio span:hover {
+    /*color: red;*/
+}
+
+#gpio .active {
+    color: black;
+}
+
+#gpio .transparent {
+    color: transparent;
+}
+
+#gpio .on {
+    background-color: #4CAF50;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
+
+
+#scenario {
+    /*background-color: rgba(76, 175, 80, 0.6);*/
+}
+
+#logs {
+    background-color: ghostwhite;
+}
+
+#sounds {
+    background-color: rgba(76, 175, 80, 0.5);
+}

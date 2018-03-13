@@ -22,11 +22,20 @@ io.on('connection', (socket) => {
 
     socket.emit('state', JSON.stringify(gpio.pins));
 
-    socket.on('sound', (message) => {});
+    socket.on('switch', (id) => {
+
+        gpio.pins[id].state = !gpio.pins[id].state;
+
+        gpio.pins[id].interface.writeSync(gpio.pins[id].state ? 1 : 0);
+
+        broadcast(gpio.pins);
+    });
 
     socket.on('disconnect', () => {});
 });
 
-gpio.broadcasts = io.broadcast.emit('state', JSON.stringify(gpio.pins));
+function broadcast(pins) {
+    io.sockets.emit('state', JSON.stringify(pins));
+}
 
-
+gpio.broadcast = broadcast;

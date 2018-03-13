@@ -1,9 +1,16 @@
 const port = 8080;
-const ip = 'http://localhost:' + port;
+const ip = 'localhost:' + port;
 
-let socket = io(ip, {secure: false});
+const remote = 'http://raspberrypi.local:8080/';
+
+let socket = io(remote);
 
 socket.on('state', (state) => {
+
     gpioState = JSON.parse(state);
     renderGPIO();
 });
+
+function switchPIN(id) {
+    socket.emit('switch', id);
+}

@@ -1,12 +1,15 @@
-let data = require('./data.js');
+let data = require('./data');
 
-// let Gpio = require('onoff').Gpio;
+let Gpio = require('onoff').Gpio;
+
+// exports.broadcast = function (pins) {
+//     console.log('old exports.broadcast')
+// };
 
 let pins = {};
-
 exports.pins = pins;
 
-exports.broadcats;
+// module.exports.pins = pins;
 
 // https://www.npmjs.com/package/onoff
 
@@ -16,16 +19,21 @@ for (let i in data.gpioState) {
 
     pins[id] = data.gpioState[i];
 
-    pins[id].interface = !data.gpioState[i].type ? new Gpio(pins[id].pid, 'out') : new Gpio(pins[id].pid, 'in', 'both');
+    pins[id].interface = pins[id].type ? new Gpio(pins[id].pid, 'out') : new Gpio(pins[id].pid, 'in', 'both');
 
-    if (data.gpioState[i].type) {
+    if (!pins[id].type) {
 
         pins[id].interface.watch(function (err, value) {
-            console.log(data.gpioState[i].id + ' | ' + data.gpioState[i].pid + ' | ' + value);
+
+            pins[id].state = (value === 1);
+
+            console.log(pins[id].id + ' | ' + pins[id].pid + ' | ' + value + ' | ' + pins[id].state);
+
+            exports.broadcast(pins);
         })
 
     } else {
-        pins[id].interface.writeSync(1);
-        exports.broadcast();
+        console.log(pins[id]);
+        pins[id].interface.writeSync(pins[id].state ? 1 : 0);
     }
 }

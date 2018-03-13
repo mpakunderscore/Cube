@@ -21,7 +21,7 @@
     /*z-index: 2;*/
     /*z-index: 1;*/
 
-    line-height: 20px;
+    /*line-height: 22px;*/
 }
 
 #settings > div {
@@ -41,7 +41,6 @@
 
     white-space: nowrap;
 
-    background-color: rgba(145, 239, 145, 0.34);
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.24);
 
     z-index: 2;
@@ -72,7 +71,6 @@
 #progress div {
     width: 0;
     height: 2px;
-    background-color: #47963c;
 }
 
 
@@ -89,13 +87,13 @@
 
 
 #gpio {
-    background-color: white;
     cursor: default;
+    white-space: nowrap;
+    padding: 20px;
 }
 
 #gpio table {
-    white-space: nowrap;
-    padding: 20px;
+    border-collapse: collapse;
 }
 
 #gpio span {
@@ -103,20 +101,9 @@
 }
 
 #gpio .state {
-    color: lightgrey;
+    user-select: none;
 }
 
-#gpio span:hover {
-    /*color: red;*/
-}
-
-#gpio .active {
-    color: black;
-}
-
-#gpio .white {
-    color: white;
-}
 
 th {
     text-align: left;
@@ -129,12 +116,13 @@ th {
 td {
     padding: 0;
     padding-right: 10px;
-    /*padding-left: 10px;*/
+    padding-left: 5px;
 }
 
 tr td:last-child {
     float: right;
     cursor: pointer;
+    line-height: 22px;
 }
 
 tr td:last-child:hover {
@@ -160,8 +148,6 @@ tr td:last-child:hover {
     letter-spacing: 1px;
 
     /*font-variant-ligatures: no-common-ligatures;*/
-
-    background-color: lightgrey;
 }
 
 #scenario > div {
@@ -182,8 +168,6 @@ tr td:last-child:hover {
 
     padding: 20px;
     box-sizing: border-box;
-
-    background-color: rgba(162, 242, 255, 0.34);
 
     letter-spacing: 1px;
 
