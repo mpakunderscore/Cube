@@ -2,6 +2,8 @@ let data = require('./data');
 
 let scenario = require('./scenario');
 
+let api = require('./api');
+
 let Gpio = require('onoff').Gpio;
 
 let pins = {};
@@ -21,7 +23,7 @@ for (let i in data.gpioState) {
 
             pins[id].state = (value === 1);
 
-            exports.broadcastState();
+            api.broadcastState(id);
 
             // console.log(pins[id].id + ' | ' + pins[id].pid + ' | ' + value + ' | ' + pins[id].state);
 
@@ -34,4 +36,8 @@ for (let i in data.gpioState) {
 
         pins[id].interface.writeSync(pins[id].state ? 1 : 0);
     }
+}
+
+exports.changeInterface = function (id) {
+    pins[id].interface.writeSync(pins[id].state ? 1 : 0);
 }

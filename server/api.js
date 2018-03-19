@@ -15,28 +15,27 @@ module.exports = function (io) {
         socket.on('switch', (id) => {
 
             gpio.pins[id].state = !gpio.pins[id].state;
-            gpio.pins[id].interface.writeSync(gpio.pins[id].state ? 1 : 0);
 
-            module.broadcastState(gpio.pins);
-            module.broadcastLog(id);
+            gpio.changeInterface();
+
+            module.broadcastState(id);
         });
 
-        socket.on('start', () => {
-        }
-
-        socket.on('start', () => {
-        }
+        socket.on('start', () => {});
 
         socket.on('disconnect', () => {});
     });
 
-    module.broadcastState = function () {
-        io.sockets.emit('state', JSON.stringify(gpio.pins));
-    }
+    module.broadcastState = function (id) {
 
-    module.broadcastLog = function (id) {
+        io.sockets.emit('state', JSON.stringify(gpio.pins));
+
+        broadcastLogState(id);
+    };
+
+    let broadcastLogState = function (id) {
         io.sockets.emit('log', id + ' ' + gpio.pins[id].pid + ' state to ' + gpio.pins[id].state);
-    }
+    };
 
     return module;
 };

@@ -1,6 +1,7 @@
 let scenarioArray = {};
 
 let gpio = require('./gpio');
+let api = require('./api');
 
 function parseScenario(text) {
 
@@ -27,12 +28,9 @@ function changeState(id, state) {
     gpio.pins[id].state = state;
 
     if (gpio.pins[id].type === true)
-        gpio.pins[id].interface.writeSync(gpio.pins[id].state ? 1 : 0);
+        gpio.changeInterface(id);
 
-    broadcastState(gpio.pins);
-    broadcastLog()
-
-    io.sockets.emit('log', id + ' ' + gpio.pins[id].pid + ' state to ' + gpio.pins[id].state);
+    api.broadcastState(id);
 }
 
 exports.checkScenario = function () {
@@ -70,18 +68,19 @@ exports.checkScenario = function () {
         changeState(3, true);
     }
 
-    if (gpio.pins[16].state !== true) {
+    if (gpio.pins[16].state === false) {
         changeState(2, true);
         changeState(3, false);
     }
 
     if (gpio.pins[13].state === true)  {
-        changeState(7, false);
-        changeState(3, false);
+
         changeState(2, false);
+        changeState(3, false);
+        changeState(7, false);
         changeState(17, false);
 
         // TODO это сенсор, и его неперь не слушаем
         changeState(16, null);
     }
-}
+};
