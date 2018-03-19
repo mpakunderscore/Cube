@@ -1,17 +1,11 @@
 let data = require('./data');
 
-let Gpio = require('onoff').Gpio;
+let scenario = require('./scenario');
 
-// exports.broadcast = function (pins) {
-//     console.log('old exports.broadcast')
-// };
+let Gpio = require('onoff').Gpio;
 
 let pins = {};
 exports.pins = pins;
-
-// module.exports.pins = pins;
-
-// https://www.npmjs.com/package/onoff
 
 for (let i in data.gpioState) {
 
@@ -27,13 +21,17 @@ for (let i in data.gpioState) {
 
             pins[id].state = (value === 1);
 
-            console.log(pins[id].id + ' | ' + pins[id].pid + ' | ' + value + ' | ' + pins[id].state);
+            exports.broadcastState();
 
-            exports.broadcast(pins);
+            // console.log(pins[id].id + ' | ' + pins[id].pid + ' | ' + value + ' | ' + pins[id].state);
+
+            scenario.checkScenario();
         })
 
     } else {
+
         console.log(pins[id]);
+
         pins[id].interface.writeSync(pins[id].state ? 1 : 0);
     }
 }

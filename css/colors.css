@@ -13,9 +13,9 @@
 
 
 .button {
-    background-color: #4CAF50;
-    color: white;
-    border-color: #1d520b;
+    background-color: rgba(211, 211, 211, 0.3);
+    color: rgba(0, 0, 0, 0.5);
+    border-color: rgba(0, 0, 0, 0.1);
     font-weight: 400;
 }
 
@@ -23,7 +23,9 @@
 
 
 #game {
-    background-color: rgba(84, 192, 88, 0.65);
+    /*background-color: rgba(84, 192, 88, 0.7);*/
+    background: linear-gradient(to bottom, rgba(84, 192, 88, 0.7), transparent);
+    border-top: 5px solid rgb(72, 164, 75);
 }
 
 #progress div {
@@ -31,11 +33,13 @@
 }
 
 #gpio {
-    background-color: rgba(28, 131, 233, 0.73);
+    /*background-color: rgba(28, 131, 233, 0.73);*/
+    background: linear-gradient(to bottom, rgba(28, 131, 233, 0.73), rgba(28, 131, 233, 0.3));
+    border-top: 5px solid rgb(24, 109, 193);
 }
 
 #gpio tr:hover {
-    background-color: rgba(211, 211, 211, 0.1);
+    background-color: rgba(211, 211, 211, 0.25);
 }
 
 #gpio .state {
@@ -65,12 +69,16 @@
 
 #scenario {
     /*background-color: rgba(76, 175, 80, 0.6);*/
+    border-top: 5px solid gray;
 }
 
 #logs {
     background-color: ghostwhite;
+    border-top: 5px solid #e6e6ed;
 }
 
 #sounds {
-    background-color: rgba(76, 175, 80, 0.5);
+    /*background-color: rgba(214, 93, 21, 0.5);*/
+    background: linear-gradient(to bottom, rgba(214, 93, 21, 0.5), transparent);
+    border-top: 5px solid rgba(214, 93, 21, 1);;
 }

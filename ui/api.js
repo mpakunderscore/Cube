@@ -14,3 +14,7 @@ socket.on('state', (state) => {
 function switchPIN(id) {
     socket.emit('switch', id);
 }
+
+socket.on('log', (text) => {
+    log(text);
+});

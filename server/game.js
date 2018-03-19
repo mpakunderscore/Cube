@@ -16,13 +16,13 @@ function startGame() {
 
     totalCurrent = totalDefault;
 
-    $('#progress > div').css('width', '0');
-
-    $('#total').text(fromSec(totalCurrent));
-
-    $('#start').addClass('off');
-
-    $('#logo').addClass('rotating');
+    // $('#progress > div').css('width', '0');
+    //
+    // $('#total').text(fromSec(totalCurrent));
+    //
+    // $('#start').addClass('off');
+    //
+    // $('#logo').addClass('rotating');
 
     // $('#start').css('box-shadow', 'none');
 
@@ -35,9 +35,9 @@ function stopGame() {
 
     gameState = false;
 
-    $('#start').removeClass('off');
+    // $('#start').removeClass('off');
 
-    $('#logo').removeClass('rotating');
+    // $('#logo').removeClass('rotating');
 }
 
 function resetGame() {
@@ -48,11 +48,11 @@ function resetGame() {
 
     time = 0;
 
-    $('#current').text(fromSec(time));
+    // $('#current').text(fromSec(time));
 
-    $('#total').text(fromSec(totalDefault));
+    // $('#total').text(fromSec(totalDefault));
 
-    $('#progress > div').css('width', 0);
+    // $('#progress > div').css('width', 0);
 }
 
 function startGameTime() {
@@ -63,7 +63,7 @@ function startGameTime() {
 
         let progress = (time / totalCurrent);
 
-        $('#progress > div').css('width', progress * 100 + '%');
+        // $('#progress > div').css('width', progress * 100 + '%');
 
         setTimeout(function() {
             startGameTime()
@@ -83,26 +83,26 @@ function startGameTime() {
 
 function updateTime() {
 
-    $('#current').text(fromSec(time));
+    // $('#current').text(fromSec(time));
 }
 
 function addTime() {
 
-    log('add time: ' + fromSec(totalCurrent) + ' + ' + $('#addTimeField').text())
+    // log('add time: ' + fromSec(totalCurrent) + ' + ' + $('#addTimeField').text())
 
-    totalCurrent = totalCurrent + toSec($('#addTimeField').text());
+    // totalCurrent = totalCurrent + toSec($('#addTimeField').text());
 
-    $('#total').text(fromSec(totalCurrent));
+    // $('#total').text(fromSec(totalCurrent));
 }
 
 function setTime() {
 
-    totalDefault = toSec($('#setTimeField').text());
-    totalCurrent = totalDefault;
+    // totalDefault = toSec($('#setTimeField').text());
+    // totalCurrent = totalDefault;
 
     log('set total time: ' + fromSec(totalDefault))
 
-    $('#total').text(fromSec(totalDefault));
+    // $('#total').text(fromSec(totalDefault));
 }
 
 function fromSec(time) {

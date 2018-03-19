@@ -21,14 +21,11 @@
         <div onclick="tab(this)">GPIO</div>
         <div onclick="tab(this)">Scenario</div>
         <div onclick="tab(this)">Logs</div>
-        <!--<div onclick="tab(this)">Scheme</div>-->
-        <!--<div onclick="tab(this)">PINS</div>-->
         <div onclick="tab(this)">Sounds</div>
         <div onclick="tab(this)">Camera</div>
-        <!--<div onclick="tab(this)">Camera</div>-->
         <div onclick="tab(this)">Help</div>
 
-        <div onclick="location.reload()">0.3.0</div>
+        <div onclick="location.reload()">0.3.2</div>
 
         <div id="date" style="margin-left: auto;" onclick="console.log(new Date())"></div>
 
@@ -85,57 +82,7 @@
 
         </div>
 
-        <div id="logs">
-
-            <div>1:51:55 #4 pid19 State OFF</div>
-            <div>1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State OFF</div>
-            <div> 1:51:55 #4 pid19 State OFF</div>
-            <div>09.03.2018</div>
-            <div>1:51:55 #4 pid19 State OFF</div>
-            <div>1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State OFF</div>
-            <div> 1:51:55 #4 pid19 State OFF</div>
-            <div> 1:51:55 #4 pid19 State OFF</div>
-            <div> 1:51:55 #4 pid19 State OFF</div>
-            <div> 1:51:55 #4 pid19 State OFF</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State OFF</div>
-            <div> 1:51:55 #4 pid19 State OFF</div>
-            <div> 1:51:55 #4 pid19 State OFF</div>
-            <div> 1:51:55 #4 pid19 State OFF</div>
-            <div> 1:51:55 #4 pid19 State OFF</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State ON</div>
-            <div> 1:51:55 #4 pid19 State OFF</div>
-            <div> 1:51:55 #4 pid19 State OFF</div>
-            <div> 1:51:55 #4 pid19 State OFF</div>
-            <div> 1:51:55 #4 pid19 State OFF</div>
-            <div> 1:51:55 #4 pid19 State OFF</div>
-        </div>
+        <div id="logs"></div>
 
         <div id="sounds">
 
@@ -149,11 +96,10 @@
         </div>
 
         <div id="camera">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/aELbc4mcGlI?rel=0&amp;showinfo=0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+            <video src="rtsp://iprobocam.marmitek.com/mpeg4"></video>
         </div>
 
         <div id="help">
-            <!--<img src="images/quest.png" onclick="img(this)" style="float: left;">-->
             <img src="images/gpio.png" onclick="img(this)" style="float: left;">
         </div>
 
