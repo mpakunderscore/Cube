@@ -39,5 +39,6 @@ for (let i in data.gpioState) {
 }
 
 exports.changeInterface = function (id) {
+    console.log('changeInterface: ' + id);
     pins[id].interface.writeSync(pins[id].state ? 1 : 0);
 }

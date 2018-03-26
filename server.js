@@ -13,3 +13,5 @@ const socketPort = 8080;
 server.listen(socketPort, () => console.log('socket listening on: ' + socketPort));
 
 let api = require('./server/api')(io);
+
+let timer = require('./server/timer');

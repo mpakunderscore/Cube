@@ -1,5 +1,7 @@
 let gpio = require('./gpio');
 
+let timer = require('./timer');
+
 module.exports = function (io) {
 
     let module = {};
@@ -16,26 +18,47 @@ module.exports = function (io) {
 
             gpio.pins[id].state = !gpio.pins[id].state;
 
-            gpio.changeInterface();
+            gpio.changeInterface(id);
 
-            module.broadcastState(id);
+            exports.broadcastState(id);
         });
 
-        socket.on('start', () => {});
+        socket.on('start', () => {
+            timer.startGame();
+        });
+
+        socket.on('reset', () => {
+            timer.resetGame();
+        });
+
+        socket.on('add', () => {});
+
+        socket.on('set', () => {});
 
         socket.on('disconnect', () => {});
     });
 
-    module.broadcastState = function (id) {
+    exports.broadcastState = function (id) {
 
         io.sockets.emit('state', JSON.stringify(gpio.pins));
 
         broadcastLogState(id);
     };
 
+    exports.broadcastTime = function (time) {
+
+        io.sockets.emit('time', time);
+    };
+
     let broadcastLogState = function (id) {
+
         io.sockets.emit('log', id + ' ' + gpio.pins[id].pid + ' state to ' + gpio.pins[id].state);
     };
+
+    exports.broadcastLog = function (text) {
+
+        io.sockets.emit('log', text);
+    }
 
     return module;
 };

@@ -17,6 +17,8 @@ function init() {
     initScenario();
     renderGPIO();
 
+    initSocket();
+
     log('init')
 }
 
@@ -109,6 +111,11 @@ function renderGPIO() {
         return;
     }
 
+    if (Object.keys(gpioState).length === 0 && gpioState.constructor === Object) {
+        $('#gpio > table').first().html('NO CONNECTION');
+        return;
+    }
+
     $('#gpio > table').first().html('');
     $('#gpio > table').first().append($('<tr> <th onclick="sortTable(0)">#</th> <th onclick="sortTable(1)">PID</th> <th>Name</th> <th onclick="sortTable(3)" style="float: right">State</th> <th onclick="sortTable(3)" style="padding-left: 20px"></th> </tr>'))
 
@@ -167,6 +174,31 @@ function startTime() {
 }
 
 startTime();
+
+function fromSec(time) {
+
+    let sec = '00';
+
+    if (time%60 < 10)
+        sec = '0' + time%60;
+
+    else
+        sec = time%60;
+
+    return Math.floor(time/60) + ':' + sec;
+}
+
+function toSec(time) {
+
+    console.log(time)
+    console.log(time.split(":"));
+
+    let sec = (time.split(":")[0] * 60) * 1 + (time.split(":")[1]) * 1;
+
+    console.log(sec)
+
+    return sec;
+}
 
 // $( document ).ready(function() {
 //     console.log( "ready!" );

@@ -20,11 +20,18 @@
 }
 
 
+#settings div {
+    opacity: 0.7;
+    transition: 1s opacity;
+}
 
+#settings div:hover {
+    opacity: 1.0;
+}
 
 #game {
     /*background-color: rgba(84, 192, 88, 0.7);*/
-    background: linear-gradient(to bottom, rgba(84, 192, 88, 0.7), transparent);
+    background: linear-gradient(to bottom, rgba(84, 192, 88, 0.7), rgba(84, 192, 88, 0.4));
     border-top: 5px solid rgb(72, 164, 75);
 }
 
@@ -34,7 +41,7 @@
 
 #gpio {
     /*background-color: rgba(28, 131, 233, 0.73);*/
-    background: linear-gradient(to bottom, rgba(28, 131, 233, 0.73), rgba(28, 131, 233, 0.3));
+    background: linear-gradient(to bottom, rgba(28, 131, 233, 0.73), rgba(28, 131, 233, 0.4));
     border-top: 5px solid rgb(24, 109, 193);
 }
 
@@ -79,6 +86,10 @@
 
 #sounds {
     /*background-color: rgba(214, 93, 21, 0.5);*/
-    background: linear-gradient(to bottom, rgba(214, 93, 21, 0.5), transparent);
+    background: linear-gradient(to bottom, rgba(214, 93, 21, 0.7), rgba(214, 93, 21, 0.4));
     border-top: 5px solid rgba(214, 93, 21, 1);;
+}
+
+#help {
+    background-color: lightgray;
 }
