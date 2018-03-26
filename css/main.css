@@ -205,6 +205,16 @@ tr td:last-child:hover {
 
 
 
+#camera1 {
+    width: 320px;
+    /*height: auto;*/
+    height: 240px;
+
+    background-color: black;
+}
+
+
+
 
 
 a {
@@ -219,8 +229,8 @@ a:hover {
 
 img {
     /*display: block;*/
-    padding: 20px;
-    height: 500px;
+    /*padding: 20px;*/
+    /*height: 500px;*/
 
     /*box-sizing: border-box;*/
 }

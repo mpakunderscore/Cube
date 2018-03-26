@@ -18,6 +18,7 @@ function init() {
     renderGPIO();
 
     initSocket();
+    initStream();
 
     log('init')
 }
@@ -95,7 +96,7 @@ function img(id) {
 }
 
 function log(text) {
-    $('#logs').prepend($('<div>' + now + ' '  + text + '</div>'))
+    $('#logs').prepend($('<div>' + now + ' <b>'  + text + '</b></div>'))
 }
 
 function checkTime(i) {

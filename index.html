@@ -25,7 +25,7 @@
         <div onclick="tab(this)">Camera</div>
         <div onclick="tab(this)">Help</div>
 
-        <div onclick="location.reload()">0.4.0</div>
+        <div onclick="location.reload()">0.4.1</div>
 
         <div id="date" style="margin-left: auto;" onclick="console.log(new Date())"></div>
 
@@ -96,7 +96,22 @@
         </div>
 
         <div id="camera">
-            <video src="rtsp://iprobocam.marmitek.com/mpeg4"></video>
+            <img id="camera1">
+
+            <!--<OBJECT classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921"-->
+                    <!--codebase="http://downloads.videolan.org/pub/videolan/vlc/latest/win32/axvlc.cab"-->
+                    <!--width="640" height="480" id="vlc" events="True">-->
+                <!--<param name="Src" value="rtsp://cameraipaddress" />-->
+                <!--<param name="ShowDisplay" value="True" />-->
+                <!--<param name="AutoLoop" value="False" />-->
+                <!--<param name="AutoPlay" value="True" />-->
+                <!--<embed id="vlcEmb"  type="application/x-google-vlc-plugin" version="VideoLAN.VLCPlugin.2" autoplay="yes" loop="no" width="640" height="480"-->
+                       <!--target="rtsp://192.168.0.196/unicast" ></embed>-->
+            <!--</OBJECT>-->
+
+            <!--<embed type="application/x-vlc-plugin" pluginspage="http://www.videolan.org" autoplay="yes" loop="no" width="300" height="200" target="rtsp://192.168.0.196/unicast" />-->
+            <!--<object classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921" codebase="http://download.videolan.org/pub/videolan/vlc/last/win32/axvlc.cab" style="display:none;"></object>-->
+
         </div>
 
         <div id="help">
@@ -112,6 +127,7 @@
     <script src="ui/index.js"></script>
     <script src="ui/utils/sort.js"></script>
     <script src="ui/utils/store.js"></script>
+    <script src="ui/utils/stream.js"></script>
 
     <script src="ui/api.js"></script>
     <!--<script src="js/gpio.js"></script>-->
