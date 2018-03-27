@@ -1,6 +1,7 @@
 let scenarioArray = {};
 
 let gpio = require('./gpio');
+
 let api = require('./api');
 
 function parseScenario(text) {
@@ -34,6 +35,8 @@ function changeState(id, state) {
 }
 
 exports.checkScenario = function () {
+
+    api.broadcastLog('check scenario')
 
     if (gpio.pins[9].state === true) {
 

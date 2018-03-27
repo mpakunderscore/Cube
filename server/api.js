@@ -79,7 +79,8 @@ module.exports = function (io) {
 
         io.sockets.emit('state', JSON.stringify(gpio.pins));
 
-        broadcastLogState(id);
+        if (typeof id !== 'undefined')
+            broadcastLogState(id);
     };
 
     exports.broadcastTime = function (time) {
@@ -89,15 +90,42 @@ module.exports = function (io) {
 
     let broadcastLogState = function (id) {
 
-        io.sockets.emit('log', id + ' ' + gpio.pins[id].pid + ' ' + gpio.pins[id].state);
+        io.sockets.emit('log', getTime() + ' (' + id + ', ' + gpio.pins[id].pid + ') ' + ' - ' + gpio.pins[id].name + ' - ' +
+
+            (gpio.pins[id].type ? (gpio.pins[id].state ? 'ON' : 'OFF') : (gpio.pins[id].state ? 'YES' : 'NO')))
+
     };
 
     exports.broadcastLog = function (text) {
 
-        io.sockets.emit('log', text);
+        io.sockets.emit('log', getTime() + ' ' + text);
     }
 
     return module;
 };
 
+function getTime() {
+
+    let now;
+
+    let today = new Date();
+    let h = today.getHours();
+    let m = today.getMinutes();
+    let s = today.getSeconds();
+
+    // add a zero in front of numbers<10
+    m = checkTime(m);
+    s = checkTime(s);
+
+    now = h + ":" + m + ":" + s;
+
+    return now;
+}
+
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
 

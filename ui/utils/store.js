@@ -11,7 +11,7 @@ function getTabs() {
     let tabs = JSON.parse(localStorage.getItem('tabs'));
 
     if (tabs === null) {
-        tabs = ['game', 'gpio', 'logs', 'camera'];
+        tabs = ['game', 'gpio', 'camera'];
     }
 
     return tabs;

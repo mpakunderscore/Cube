@@ -96,7 +96,7 @@ function img(id) {
 }
 
 function log(text) {
-    $('#logs').prepend($('<div>' + now + ' <b>'  + text + '</b></div>'))
+    $('#logs').prepend($('<div>' + text + '</div>'))
 }
 
 function checkTime(i) {

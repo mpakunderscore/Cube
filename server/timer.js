@@ -1,5 +1,7 @@
 let api = require('./api');
 
+let gpio = require('./gpio');
+
 let gameState = false;
 let time = 0;
 
@@ -37,6 +39,10 @@ exports.resetGame = function () {
     time = 0;
 
     api.broadcastTime(time);
+
+    gpio.resetGPIO();
+
+    api.broadcastState();
 };
 
 function startGameTime() {

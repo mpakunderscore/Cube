@@ -6,39 +6,66 @@ let api = require('./api');
 
 let Gpio = require('onoff').Gpio;
 
-let pins = {};
-exports.pins = pins;
+exports.pins = {};
 
-for (let i in data.gpioState) {
+exports.resetGPIO = function () {
 
-    let id = data.gpioState[i].id;
+    for (let i in exports.pins) {
 
-    pins[id] = data.gpioState[i];
+        exports.pins[i].state = data.gpioState[i].state;
 
-    pins[id].interface = pins[id].type ? new Gpio(pins[id].pid, 'out') : new Gpio(pins[id].pid, 'in', 'both');
-
-    if (!pins[id].type) {
-
-        pins[id].interface.watch(function (err, value) {
-
-            pins[id].state = (value === 1);
-
-            api.broadcastState(id);
-
-            // console.log(pins[id].id + ' | ' + pins[id].pid + ' | ' + value + ' | ' + pins[id].state);
-
-            scenario.checkScenario();
-        })
-
-    } else {
-
-        console.log(pins[id]);
-
-        pins[id].interface.writeSync(pins[id].state ? 1 : 0);
+        if (exports.pins[i].type) {
+            exports.pins[i].interface.writeSync(exports.pins[i].state ? 1 : 0);
+        }
     }
 }
 
+exports.initGPIO = function () {
+
+    api.broadcastLog('init gpio')
+
+    // exports.pins = {};
+
+    for (let i in data.gpioState) {
+
+        let id = data.gpioState[i].id;
+
+        exports.pins[id] = {};
+
+        exports.pins[id].id = data.gpioState[i].id;
+
+        exports.pins[id].pid = data.gpioState[i].pid;
+
+        exports.pins[id].name = data.gpioState[i].name;
+
+        exports.pins[id].type = data.gpioState[i].type;
+
+        exports.pins[id].state = data.gpioState[i].state;
+
+        exports.pins[id].interface = exports.pins[id].type ? new Gpio(exports.pins[id].pid, 'out') : new Gpio(exports.pins[id].pid, 'in', 'both');
+
+        if (!exports.pins[id].type) {
+
+            exports.pins[id].interface.watch(function (err, value) {
+
+                exports.pins[id].state = (value === 1);
+
+                api.broadcastState(id);
+
+                // console.log(exports.pins[id].id + ' | ' + exports.pins[id].pid + ' | ' + value + ' | ' + exports.pins[id].state);
+
+                scenario.checkScenario();
+            })
+
+        } else {
+
+            // console.log(exports.pins[id]);
+            exports.pins[id].interface.writeSync(exports.pins[id].state ? 1 : 0);
+        }
+    }
+};
+
 exports.changeInterface = function (id) {
     console.log('changeInterface: ' + id);
-    pins[id].interface.writeSync(pins[id].state ? 1 : 0);
+    exports.pins[id].interface.writeSync(exports.pins[id].state ? 1 : 0);
 }

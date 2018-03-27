@@ -16,5 +16,5 @@ exports.gpioState = {
     "14": {id: "14", pid: "24", name: "Сигнал от звезд", state: false, type: false},
     "15": {id: "15", pid: "25", name: "Сигнал от подиума с медальонами", state: null, type: false},
     "16": {id: "16", pid: "18", name: "Сигнал от “стража”", state: null, type: false},
-    "17": {id: "17", pid: "21", name: "Глаза “стража”", state: true, type: true}
+    "17": {id: "17", pid: "21", name: "Глаза “стража”", state: false, type: true}
 };

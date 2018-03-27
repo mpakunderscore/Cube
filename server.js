@@ -15,3 +15,7 @@ server.listen(socketPort, () => console.log('socket listening on: ' + socketPort
 let api = require('./server/api')(io);
 
 let timer = require('./server/timer');
+
+let gpio = require('./server/gpio');
+
+gpio.initGPIO();
