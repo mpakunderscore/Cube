@@ -2,6 +2,8 @@ let scenarioArray = {};
 
 let gpio = require('./gpio');
 
+let sound = require('./sound')
+
 let api = require('./api');
 
 function parseScenario(text) {
@@ -34,9 +36,22 @@ function changeState(id, state) {
     api.broadcastState(id);
 }
 
+exports.startScenario = function () {
+    sound.play('scary.mp3');
+};
+
+exports.endTimeScenario = function () {
+
+    sound.play('failed.mp3');
+
+    changeState(2, false);
+
+    setTimeout(function(){ changeState(1, false) }, 10000);
+};
+
 exports.checkScenario = function () {
 
-    api.broadcastLog('check scenario')
+    api.broadcastLog('check scenario');
 
     if (gpio.pins[9].state === true) {
 
@@ -86,4 +101,18 @@ exports.checkScenario = function () {
         // TODO это сенсор, и его неперь не слушаем
         changeState(16, null);
     }
+
+    // if (?) {
+    //     начинаем слушать сенсор
+    //     15 = false
+    // }
+    //
+    // if (15) {
+    //     меняем проигрываемый трек
+    //     sound.play('cat.mp3');
+    //     2 = false
+    //     wait(10)
+    //     1 = false
+    // }
+
 };

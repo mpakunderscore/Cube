@@ -51,6 +51,8 @@ module.exports = function (io) {
 
         socket.emit('state', JSON.stringify(gpio.pins));
 
+        socket.emit('total', timer.getTotal());
+
         socket.on('switch', (id) => {
 
             gpio.pins[id].state = !gpio.pins[id].state;
@@ -68,10 +70,15 @@ module.exports = function (io) {
             timer.resetGame();
         });
 
-        socket.on('add', () => {});
+        socket.on('add', (t) => {
+            timer.addTime(t);
+            socket.emit('total', timer.getTotal());
+        });
 
-        socket.on('set', () => {});
-
+        socket.on('set', (t) => {
+            timer.setTime(t);
+            socket.emit('total', timer.getTotal());
+        });
         // socket.on('disconnect', () => {});
     });
 

@@ -21,8 +21,8 @@
 
         <div onclick="tab(this)">Game</div>
         <div onclick="tab(this)">GPIO</div>
-        <div onclick="tab(this)">Scenario</div>
         <div onclick="tab(this)">Logs</div>
+        <div onclick="tab(this)">Scenario</div>
         <div onclick="tab(this)">Sounds</div>
         <div onclick="tab(this)">Camera</div>
         <div onclick="tab(this)">Help</div>
@@ -47,7 +47,7 @@
 
             <div id="time" class="list">
                 <div>
-                    Time:<span id="current">0:00</span>/<span id="total">30:00</span>
+                    Time:<span id="current">?</span>/<span id="total">?</span>
                 </div>
                 <div>
                     <div id="addTimeField" class="field" contenteditable="true">0:30</div>
@@ -73,6 +73,8 @@
             </div>
         </div>
 
+        <div id="logs"></div>
+
         <div id="scenario">
 
             <div contenteditable="true"></div>
@@ -83,8 +85,6 @@
             </div>
 
         </div>
-
-        <div id="logs"></div>
 
         <div id="sounds">
 

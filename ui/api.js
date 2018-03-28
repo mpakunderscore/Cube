@@ -55,15 +55,23 @@ function initSocket() {
     });
 
     socket.on('time', (time) => {
+
         console.log(time);
+
         // log(time);
+
         $('#current').text(fromSec(time));
 
-        if (time === '1')
+        if (time > 0)
             $('#logo').addClass('rotating');
 
-        else if (time === '0')
+        else if (time === 0)
             $('#logo').removeClass('rotating');
+    });
+
+    socket.on('total', (total) => {
+        $('#current').text('0:00');
+        $('#total').text(fromSec(total));
     });
 }
 
@@ -77,6 +85,14 @@ function startGame() {
 
 function resetGame() {
     socket.emit('reset', null);
+}
+
+function addTime() {
+    socket.emit('add', toSec($('#addTimeField').text()));
+}
+
+function setTime() {
+    socket.emit('set', toSec($('#setTimeField').text()));
 }
 
 
