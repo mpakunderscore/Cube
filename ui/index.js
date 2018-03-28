@@ -14,11 +14,18 @@ function init() {
     }
 
     initTabs();
-    initScenario();
     renderGPIO();
 
     initSocket();
     initStream();
+
+    initScenario();
+
+    $(document).ready(function() {
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
+    });
 
     log('init')
 }
@@ -84,7 +91,7 @@ function initScenario() {
         scenario = 'if (4) { 5 = false }';
     }
 
-    $('#scenario > div')[0].innerText = scenario;
+    $('#scenario > pre > code')[0].innerText = scenario;
 
     // parseScenario(scenario);
 

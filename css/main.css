@@ -154,7 +154,7 @@ tr td:last-child:hover {
 
     /*box-sizing: border-box;*/
 
-    font-weight: 300;
+    /*font-weight: 300;*/
 
     /*line-height: 20px;*/
 
@@ -163,10 +163,27 @@ tr td:last-child:hover {
     /*font-variant-ligatures: no-common-ligatures;*/
 }
 
-#scenario > div {
-    padding: 20px;
+#scenario pre {
+    margin: 0;
+    box-sizing: border-box;
+    width: 600px !important;
+    overflow: hidden !important;
 }
 
+#scenario code {
+
+    /*width: 100%;*/
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 0;
+
+    font: normal 10pt Consolas, Monaco, monospace;
+}
+
+#scenario span {
+    /*overflow: hidden;*/
+}
 
 
 #logs {
@@ -211,6 +228,11 @@ tr td:last-child:hover {
     height: 50%;
 
     background-color: black;
+}
+
+#help img {
+    padding: 20px;
+    height: 500px;
 }
 
 

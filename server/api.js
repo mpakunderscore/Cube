@@ -99,7 +99,7 @@ module.exports = function (io) {
 
         io.sockets.emit('log', getTime() + ' (' + id + ', ' + gpio.pins[id].pid + ') ' + ' - ' + gpio.pins[id].name + ' - ' +
 
-            (gpio.pins[id].type ? (gpio.pins[id].state ? 'ON' : 'OFF') : (gpio.pins[id].state ? 'YES' : 'NO')))
+            (gpio.pins[id].type ? (gpio.pins[id].state ? '<b>ON</b>' : 'OFF') : (gpio.pins[id].state ? '<b>YES</b>' : 'NO')))
 
     };
 

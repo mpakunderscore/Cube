@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/colors.css">
 
+    <link rel="stylesheet" href="css/highlightjs/androidstudio.css">
+    <script src="ui/utils/highlight.pack.js"></script>
+
 </head>
 
 <body onload="init()">
@@ -77,7 +80,9 @@
 
         <div id="scenario">
 
-            <div contenteditable="true"></div>
+            <!--<div></div>-->
+
+            <pre><code contenteditable="true" class="javascript"></code></pre>
 
             <div class="bottom">
                 <div class="button shadow" onclick="testScenario()">TEST</div>

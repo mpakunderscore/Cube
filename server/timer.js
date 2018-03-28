@@ -19,7 +19,14 @@ exports.startGame = function () {
     if (gameState)
         return;
 
-    scenario.startScenario();
+    gpio.resetGPIO();
+
+    api.broadcastState();
+
+    if (!scenario.startScenario()) {
+        api.broadcastLog('Игра не собрана. Запустить квест?');
+        return;
+    }
 
     gameState = true;
     time = 0;
