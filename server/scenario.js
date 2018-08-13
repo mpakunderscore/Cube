@@ -38,9 +38,13 @@ function changeState(id, state) {
 
 exports.startScenario = function () {
 
-    for (let i = 9; i < 17; i++)
-        if (typeof gpio.pins[i] !== 'undefined' && gpio.pins[i].state === true)
+
+    for (let i = 9; i < 17; i++) {
+
+        console.log(typeof gpio.pins[i]);
+        if (gpio.pins[i] !== null && gpio.pins[i].state === true)
             return false;
+    }
 
     sound.play('scary.mp3');
 
