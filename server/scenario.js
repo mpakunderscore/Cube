@@ -65,9 +65,9 @@ exports.checkScenario = function () {
         changeState(4, false);
     }
 
-    if (gpio.pins[10].state === true) {
-        changeState(5, false);
-    }
+    // if (gpio.pins[10].state === true) {
+    //     changeState(5, false);
+    // }
 
     if (gpio.pins[11].state === true) {
         changeState(6, false);

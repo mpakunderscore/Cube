@@ -1,1 +1,7 @@
 sudo apt-get install omxplayer
+
+rsync -avz --exclude 'node_modules' ./* pi@raspberrypi.local:~/cube/
+
+ssh pi@raspberrypi.local
+
+scp ~/Desktop/20-rtsp-server root@192.168.0.196:/media/mmcblk0p2/data/etc/scripts/20-rtsp-server

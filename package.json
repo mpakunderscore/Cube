@@ -5,8 +5,9 @@
     "electron-packager": "^11.1.0",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
-    "omxplayer": "^0.6.1",
+    "omxplayer": "^1.0.0",
     "onoff": "^1.2.0",
+    "request": "^2.85.0",
     "rtsp-ffmpeg": "0.0.12",
     "socket.io": "^2.0.4"
   },

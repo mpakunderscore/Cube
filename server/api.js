@@ -2,8 +2,11 @@ let gpio = require('./gpio');
 
 let timer = require('./timer');
 
-let rtsp = require('rtsp-ffmpeg');
+let request = require('request');
 
+// camera stream
+
+let rtsp = require('rtsp-ffmpeg');
 
 let uri = 'rtsp://192.168.0.196/unicast';
 
@@ -14,6 +17,7 @@ let rtspStream = new rtsp.FFMpeg({
     quality: 3 // JPEG compression quality level (optional)});
 });
 
+// we give out socket io stream with images
 
 function streamCamera(io) {
 
@@ -36,6 +40,8 @@ function streamCamera(io) {
         });
     });
 }
+
+//
 
 module.exports = function (io) {
 
@@ -93,23 +99,44 @@ module.exports = function (io) {
     exports.broadcastTime = function (time) {
 
         io.sockets.emit('time', time);
+
+        // sendLogToCloud(getTime(), time);
     };
 
     let broadcastLogState = function (id) {
 
-        io.sockets.emit('log', getTime() + ' (' + id + ', ' + gpio.pins[id].pid + ') ' + ' - ' + gpio.pins[id].name + ' - ' +
+        exports.broadcastLog('(' + id + ', ' + gpio.pins[id].pid + ') ' + ' - ' + gpio.pins[id].name + ' - ' +
 
             (gpio.pins[id].type ? (gpio.pins[id].state ? '<b>ON</b>' : 'OFF') : (gpio.pins[id].state ? '<b>YES</b>' : 'NO')))
-
     };
 
     exports.broadcastLog = function (text) {
 
         io.sockets.emit('log', getTime() + ' ' + text);
-    }
+
+        sendLogToCloud(getTime(), text);
+    };
 
     return module;
 };
+
+function sendLogToCloud(time, text) {
+
+    // console.log(text);
+
+    let url = '/upload';
+    let options = {
+        method: 'post',
+        body: {time: time, text: text},
+        json: true,
+        url: url
+    };
+
+    request(options, function (error, response, body) {
+
+        // console.log(response)
+    });
+}
 
 function getTime() {
 

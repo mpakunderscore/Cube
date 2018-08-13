@@ -4,7 +4,7 @@ let api = require('./api');
 
 // let Omx = require('node-omxplayer');
 
-var OMXPlayer = require('omxplayer');
+let OMXPlayer = require('omxplayer');
 
 let configuration = {};
 let omxplayer = new OMXPlayer(configuration);
