@@ -25,7 +25,7 @@ exports.startGame = function () {
 
     if (!scenario.startScenario()) {
         api.broadcastLog('Игра не собрана. Запустить квест?');
-        return;
+        // return;
     }
 
     gameState = true;
