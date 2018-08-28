@@ -4,7 +4,7 @@ let timer = require('./timer');
 
 let request = require('request');
 
-// camera stream
+// camera stream TODO move to ./camera
 
 let rtsp = require('rtsp-ffmpeg');
 

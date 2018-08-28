@@ -4,11 +4,15 @@ let gpio = require('./gpio');
 
 let scenario = require('./scenario');
 
+let camera = require('./camera')
+
 let gameState = false;
 let time = 0;
 
 let totalDefault = 1800;
 let totalCurrent = totalDefault;
+
+let photoTime = 240;
 
 exports.getTotal = function () {
     return totalCurrent;
@@ -76,6 +80,11 @@ function startGameTime() {
 
         time = time + 1;
 
+        if (time === 1 || time === photoTime) {
+
+            camera.sendPhoto();
+        }
+
         if (time > totalCurrent) {
 
             api.broadcastLog('timeout');
@@ -83,8 +92,6 @@ function startGameTime() {
             stopGame();
 
             scenario.endTimeScenario();
-
-            return;
         }
     }
 }
