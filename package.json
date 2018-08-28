@@ -5,6 +5,7 @@
     "electron-packager": "^11.1.0",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
+    "nodemailer": "^4.6.8",
     "omxplayer": "^1.0.0",
     "onoff": "^1.2.0",
     "request": "^2.85.0",
