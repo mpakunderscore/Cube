@@ -88,7 +88,7 @@ function initScenario() {
     // console.log(scenario);
 
     if (scenario === null) {
-        scenario = 'if (4) { 5 = false }';
+        scenario = scenarioData;
     }
 
     $('#scenario > pre > code')[0].innerText = scenario;
