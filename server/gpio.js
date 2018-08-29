@@ -49,7 +49,7 @@ exports.initGPIO = function () {
 
             exports.pins[id].interface.watch(function (err, value) {
 
-                exports.pins[id].state = (value === 1);
+                exports.pins[id].state = (value === 0);
 
                 api.broadcastState(id);
 
