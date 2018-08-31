@@ -61,12 +61,12 @@ exports.initGPIO = function () {
         } else {
 
             // console.log(exports.pins[id]);
-            exports.pins[id].interface.writeSync(exports.pins[id].state ? 1 : 0);
+            exports.pins[id].interface.writeSync(exports.pins[id].state ? 0 : 1);
         }
     }
 };
 
 exports.changeInterface = function (id) {
     console.log('changeInterface: ' + id);
-    exports.pins[id].interface.writeSync(exports.pins[id].state ? 1 : 0);
+    exports.pins[id].interface.writeSync(exports.pins[id].state ? 0 : 1);
 }
