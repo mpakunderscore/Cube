@@ -116,17 +116,23 @@ exports.checkScenario = function () {
         changeState(16, null);
     }
 
-    // if (?) {
-    //     начинаем слушать сенсор
-    //     15 = false
-    // }
+    // if (gpio.pins[9].state === true &&
+    //     gpio.pins[11].state === true &&
+    //     gpio.pins[12].state === true &&
+    //     gpio.pins[13].state === true &&
+    //     gpio.pins[14].state === true) {
     //
-    // if (15) {
-    //     меняем проигрываемый трек
-    //     sound.play('cat.mp3');
-    //     2 = false
-    //     wait(10)
-    //     1 = false
+    //     // начинаем слушать сенсор
+    //     changeState(15, false);
     // }
 
+    if (gpio.pins[15].state === true) {
+
+        // меняем проигрываемый трек
+        sound.play('cat.mp3');
+        changeState(2, false);
+
+        // wait(10)
+        setTimeout(function(){ changeState(1, true); }, 10000);
+    }
 };

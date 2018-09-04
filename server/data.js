@@ -12,7 +12,7 @@ exports.gpioState = {
     "12": {id: "12", pid: "22", name: "Сигнал от паззла", state: false, type: false},
     "13": {id: "13", pid: "23", name: "Сигнал от паззла 2", state: null, type: false},
     "14": {id: "14", pid: "24", name: "Сигнал от звезд", state: false, type: false},
-    "15": {id: "15", pid: "25", name: "Сигнал от подиума с медальонами", state: null, type: false},
+    "15": {id: "15", pid: "25", name: "Сигнал от подиума с медальонами", state: false, type: false},
     "16": {id: "16", pid: "18", name: "Сигнал от “стража”", state: null, type: false},
     "17": {id: "17", pid: "21", name: "Глаза “стража”", state: false, type: true}
 };
