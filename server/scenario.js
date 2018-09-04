@@ -107,7 +107,7 @@ exports.checkScenario = function () {
 
     if (gpio.pins[13].state === true)  {
 
-        changeState(2, false);
+        changeState(2, true);
         changeState(3, false);
         changeState(7, false);
         changeState(17, false);
