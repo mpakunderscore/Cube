@@ -27,6 +27,13 @@ function parseScenario(text) {
 
 function changeState(id, state) {
 
+    if (gpio.pins[id].state === null) {
+
+        gpio.initInterface(id);
+        api.broadcastState(id);
+        return;
+    }
+
     if (gpio.pins[id].state === state)
         return;
 
@@ -138,6 +145,6 @@ exports.checkScenario = function () {
         changeState(2, false);
 
         // wait(10)
-        setTimeout(function(){ changeState(1, true); }, 10000);
+        setTimeout(function(){ changeState(1, false); }, 10000);
     }
 };

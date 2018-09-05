@@ -73,3 +73,8 @@ exports.changeInterface = function (id) {
     console.log('changeInterface: ' + id);
     exports.pins[id].interface.writeSync(exports.pins[id].state ? 0 : 1);
 };
+
+exports.initInterface = function (id) {
+    console.log('initInterface: ' + id);
+    exports.pins[id].state = (exports.pins[id].interface.readSync() === 0);
+};
