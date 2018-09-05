@@ -72,4 +72,4 @@ exports.initGPIO = function () {
 exports.changeInterface = function (id) {
     console.log('changeInterface: ' + id);
     exports.pins[id].interface.writeSync(exports.pins[id].state ? 0 : 1);
-}
+};

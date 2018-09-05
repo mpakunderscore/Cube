@@ -2,9 +2,11 @@ let scenarioArray = {};
 
 let gpio = require('./gpio');
 
-let sound = require('./sound')
+let sound = require('./sound');
 
 let api = require('./api');
+
+let timer = require('./timer');
 
 function parseScenario(text) {
 
@@ -61,6 +63,9 @@ exports.endTimeScenario = function () {
 };
 
 exports.checkScenario = function () {
+
+    if (!timer.getState())
+        return;
 
     api.broadcastLog('check scenario');
 

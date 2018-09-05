@@ -14,6 +14,10 @@ let totalCurrent = totalDefault;
 
 let photoTime = 240;
 
+exports.getState = function () {
+    return gameState;
+};
+
 exports.getTotal = function () {
     return totalCurrent;
 };

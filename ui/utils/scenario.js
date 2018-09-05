@@ -44,7 +44,10 @@ let scenarioData = "exports.startScenario = function () {\n" +
     "    }\n" +
     "\n" +
     "    // Еще одна задача выполняется параллельно этим, но её шаги должны быть последовательны:\n" +
-    "    // При срабатывании сенсора 12 устанавливаем 17 в значение ON и начинаем слушать сенсоры 16 и 13. На сенсор 16 реагируем многоразово, при его срабатывании ставим 2 в OFF и 3 в ON, при его деактивации - ставим 2 в ON и 3 в OFF. При срабатывании сенсора 13 ставим 7 в OFF, 3 в OFF, 2 в ON, 17 в OFF, перестаем слушать сенсор 16.\n" +
+    "    // При срабатывании сенсора 12 устанавливаем 17 в значение ON и начинаем слушать сенсоры 16 и 13.\n" +
+    "    // На сенсор 16 реагируем многоразово, при его срабатывании ставим 2 в OFF и 3 в ON,\n" +
+    "    // при его деактивации - ставим 2 в ON и 3 в OFF. При срабатывании сенсора 13 ставим 7 в OFF,\n" +
+    "    // 3 в OFF, 2 в ON, 17 в OFF, перестаем слушать сенсор 16.\n" +
     "\n" +
     "    if (gpio.pins[12].state === true) {\n" +
     "        changeState(17, true);\n" +
@@ -66,7 +69,7 @@ let scenarioData = "exports.startScenario = function () {\n" +
     "\n" +
     "    if (gpio.pins[13].state === true)  {\n" +
     "\n" +
-    "        changeState(2, false);\n" +
+    "        changeState(2, true);\n" +
     "        changeState(3, false);\n" +
     "        changeState(7, false);\n" +
     "        changeState(17, false);\n" +
@@ -75,17 +78,23 @@ let scenarioData = "exports.startScenario = function () {\n" +
     "        changeState(16, null);\n" +
     "    }\n" +
     "\n" +
-    "    // if (?) {\n" +
-    "    //     начинаем слушать сенсор\n" +
-    "    //     15 = false\n" +
-    "    // }\n" +
+    "    // if (gpio.pins[9].state === true &&\n" +
+    "    //     gpio.pins[11].state === true &&\n" +
+    "    //     gpio.pins[12].state === true &&\n" +
+    "    //     gpio.pins[13].state === true &&\n" +
+    "    //     gpio.pins[14].state === true) {\n" +
     "    //\n" +
-    "    // if (15) {\n" +
-    "    //     меняем проигрываемый трек\n" +
-    "    //     sound.play('cat.mp3');\n" +
-    "    //     2 = false\n" +
-    "    //     wait(10)\n" +
-    "    //     1 = false\n" +
+    "    //     // начинаем слушать сенсор\n" +
+    "    //     changeState(15, false);\n" +
     "    // }\n" +
     "\n" +
+    "    if (gpio.pins[15].state === true) {\n" +
+    "\n" +
+    "        // меняем проигрываемый трек\n" +
+    "        sound.play('cat.mp3');\n" +
+    "        changeState(2, false);\n" +
+    "\n" +
+    "        // wait(10)\n" +
+    "        setTimeout(function(){ changeState(1, true); }, 10000);\n" +
+    "    }\n" +
     "};";
