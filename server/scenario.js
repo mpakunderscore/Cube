@@ -75,9 +75,13 @@ exports.checkScenario = function () {
 
     api.broadcastLog('check scenario');
 
-    if (gpio.pins[9].state === true) {
+    // 9 11 12 13 14
 
+    if (gpio.pins[9].state === true) {
+        changeState(9, null);
         changeState(4, false);
+
+        setTimeout(function(){ sound.play('cat.mp3'); }, 1000);
     }
 
     // if (gpio.pins[10].state === true) {
@@ -85,11 +89,17 @@ exports.checkScenario = function () {
     // }
 
     if (gpio.pins[11].state === true) {
+        changeState(11, null);
         changeState(6, false);
+
+        setTimeout(function(){ sound.play('cat.mp3'); }, 1000);
     }
 
     if (gpio.pins[14].state === true) {
+        changeState(14, null);
         changeState(8, false);
+
+        setTimeout(function(){ sound.play('cat.mp3'); }, 1000);
     }
 
     // Еще одна задача выполняется параллельно этим, но её шаги должны быть последовательны:
@@ -99,11 +109,14 @@ exports.checkScenario = function () {
     // 3 в OFF, 2 в ON, 17 в OFF, перестаем слушать сенсор 16.
 
     if (gpio.pins[12].state === true) {
+        changeState(12, null);
         changeState(17, true);
 
         // теперь слушаем эти сенсоры
         initState(16);
         initState(13);
+
+        setTimeout(function(){ sound.play('cat.mp3'); }, 1000);
     }
 
     if (gpio.pins[16].state === true) {
@@ -117,7 +130,7 @@ exports.checkScenario = function () {
     }
 
     if (gpio.pins[13].state === true)  {
-
+        changeState(13, null);
         changeState(2, true);
         changeState(3, false);
         changeState(7, false);
@@ -125,6 +138,8 @@ exports.checkScenario = function () {
 
         // TODO это сенсор, и его неперь не слушаем
         changeState(16, null);
+
+        setTimeout(function(){ sound.play('cat.mp3'); }, 1000);
     }
 
     // if (gpio.pins[9].state === true &&
@@ -138,7 +153,6 @@ exports.checkScenario = function () {
     // }
 
     if (gpio.pins[15].state === true) {
-
         // меняем проигрываемый трек
         sound.play('cat.mp3');
         changeState(2, false);
