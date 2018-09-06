@@ -25,14 +25,13 @@ function parseScenario(text) {
     }
 }
 
+function initState(id) {
+
+    gpio.initInterface(id);
+    api.broadcastState(id);
+}
+
 function changeState(id, state) {
-
-    if (gpio.pins[id].state === null) {
-
-        gpio.initInterface(id);
-        api.broadcastState(id);
-        return;
-    }
 
     if (gpio.pins[id].state === state)
         return;
@@ -103,8 +102,8 @@ exports.checkScenario = function () {
         changeState(17, true);
 
         // теперь слушаем эти сенсоры
-        changeState(16, false);
-        changeState(13, false);
+        initState(16);
+        initState(13);
     }
 
     if (gpio.pins[16].state === true) {
