@@ -12,8 +12,10 @@ exports.resetGPIO = function () {
 
     for (let i in exports.pins) {
 
-        if (exports.pins[i].type)
-            exports.pins[i].state = data.gpioState[i].state;
+        // if (exports.pins[i].type)
+        //     exports.pins[i].state = data.gpioState[i].state;
+
+        exports.pins[i].state = data.gpioState[i].state;
 
         if (exports.pins[i].type) {
             exports.pins[i].interface.writeSync(exports.pins[i].state ? 0 : 1);
