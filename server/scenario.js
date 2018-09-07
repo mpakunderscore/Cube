@@ -54,7 +54,7 @@ exports.startScenario = function () {
         //     return false;
     }
 
-    sound.play('scary.mp3');
+    sound.play('1_start.mp3');
 
     return true;
 };
@@ -79,9 +79,8 @@ exports.checkScenario = function () {
 
     if (gpio.pins[9].state === true) {
         changeState(9, null);
-        changeState(4, false);
-
-        setTimeout(function(){ sound.play('cat.mp3'); }, 1000);
+        sound.play('4_harp.mp3');
+        setTimeout(function(){ changeState(4, false); }, 6000);
     }
 
     // if (gpio.pins[10].state === true) {
@@ -90,16 +89,15 @@ exports.checkScenario = function () {
 
     if (gpio.pins[11].state === true) {
         changeState(11, null);
-        changeState(6, false);
-
-        setTimeout(function(){ sound.play('cat.mp3'); }, 1000);
+        sound.play('2_polzunki.mp3');
+        setTimeout(function(){ changeState(6, false); }, 8500);
     }
 
     if (gpio.pins[14].state === true) {
         changeState(14, null);
-        changeState(8, false);
-
-        setTimeout(function(){ sound.play('cat.mp3'); }, 1000);
+        sound.play('6_zvezdy.mp3');
+    
+        setTimeout(function(){ changeState(8, false); }, 1000);
     }
 
     // Еще одна задача выполняется параллельно этим, но её шаги должны быть последовательны:
@@ -116,7 +114,7 @@ exports.checkScenario = function () {
         initState(16);
         initState(13);
 
-        setTimeout(function(){ sound.play('cat.mp3'); }, 1000);
+        sound.play('3_pazl_1.mp3'); 
     }
 
     if (gpio.pins[16].state === true) {
@@ -130,16 +128,17 @@ exports.checkScenario = function () {
     }
 
     if (gpio.pins[13].state === true)  {
+        
         changeState(13, null);
         changeState(2, true);
         changeState(3, false);
-        changeState(7, false);
         changeState(17, false);
 
         // TODO это сенсор, и его неперь не слушаем
         changeState(16, null);
+        sound.play('5_pazl_2.mp3');
 
-        setTimeout(function(){ sound.play('cat.mp3'); }, 1000);
+        setTimeout(function(){ changeState(7, false); }, 1000);
     }
 
     // if (gpio.pins[9].state === true &&
@@ -154,7 +153,7 @@ exports.checkScenario = function () {
 
     if (gpio.pins[15].state === true) {
         // меняем проигрываемый трек
-        sound.play('cat.mp3');
+        sound.play('8_final.mp3');
         changeState(2, false);
 
         // wait(10)
