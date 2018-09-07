@@ -138,7 +138,7 @@ exports.checkScenario = function () {
         changeState(16, null);
         sound.play('5_pazl_2.mp3');
 
-        setTimeout(function(){ changeState(7, false); }, 1000);
+        setTimeout(function(){ changeState(7, false); }, 5000);
     }
 
     // if (gpio.pins[9].state === true &&
@@ -157,6 +157,6 @@ exports.checkScenario = function () {
         changeState(2, false);
 
         // wait(10)
-        setTimeout(function(){ changeState(1, false); }, 10000);
+        setTimeout(function(){ changeState(1, false); }, 12000);
     }
 };
