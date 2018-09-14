@@ -30,7 +30,7 @@ exports.send = function (data) {
 let mailOptions = {
 
     from: 'qf.cube@gmail.com',
-    to: ['mpakunderscore@gmail.com', 'korzhikspb@gmail.com'],
+    to: ['cubequestmaya@gmail.com'],
     subject: new Date().toJSON().slice(0,19).replace(/-/g,'/').replace(/T/g,' '),
     text: '',
     attachments: []
