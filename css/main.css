@@ -228,6 +228,9 @@ tr td:last-child:hover {
     height: 50%;
 
     background-color: black;
+    
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
 
 #help img {
