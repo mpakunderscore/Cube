@@ -31,7 +31,7 @@ exports.stop = function () {
     omxplayer.stop();
 };
 
-exports.play('ufo.mp3');
+omxplayer.start('/home/pi/cube/sounds/' + 'ufo.mp3', function(error) {});
 
 
 // let api = require('./api');
