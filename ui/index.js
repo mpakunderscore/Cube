@@ -208,10 +208,6 @@ function toSec(time) {
     return sec;
 }
 
-function button(id) {
-    console.log(id)
-}
-
 // $( document ).ready(function() {
 //     console.log( "ready!" );
 // });

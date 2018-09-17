@@ -97,6 +97,9 @@ function setTime() {
     socket.emit('set', toSec($('#setTimeField').text()));
 }
 
+function button(id) {
+    socket.emit('button', id);
+}
 
 
 function base64ArrayBuffer(arrayBuffer) {

@@ -2,6 +2,8 @@ let gpio = require('./gpio');
 
 let timer = require('./timer');
 
+let scenario = require('./scenario');
+
 let request = require('request');
 
 // camera stream TODO move to ./camera
@@ -85,6 +87,11 @@ module.exports = function (io) {
             timer.setTime(t);
             socket.emit('total', timer.getTotal());
         });
+
+        socket.on('button', (id) => {
+            scenario.button(id);
+        });
+
         // socket.on('disconnect', () => {});
     });
 
