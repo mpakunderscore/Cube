@@ -26,8 +26,41 @@ exports.play = function (name) {
     omxplayer.start('/home/pi/cube/sounds/' + name, function(error) {});
 };
 
-omxplayer.start('/home/pi/cube/sounds/' + 'ufo.mp3', function(error) {});
+exports.stop = function () {
 
+    omxplayer.stop();
+};
+
+exports.play('ufo.mp3');
+
+
+// let api = require('./api');
+//
+// let OMXPlayer = require('omxplayer');
+//
+// exports.play = function (name, volume) {
+//
+//     if (!volume)
+//         volume = 100;
+//
+//     api.broadcastLog('play ' + name);
+//     let configuration = {Volume: volume};
+//     let omxplayer = new OMXPlayer(configuration);
+//     omxplayer.start('/home/pi/cube/sounds/' + name, function(error) {});
+// };
+//
+// exports.play("ufo.mp3");
+// exports.play("ufo.mp3", 50);
+//
+// let OMXPlayer = require('omxplayer');
+// let configuration = {};
+// let omxplayer = new OMXPlayer(configuration);
+// exports.play = function (name, volume) {
+//
+//     // omxplayer.setVolume(volume, function(error) {});
+//     omxplayer.start('/home/pi/cube/sounds/' + name, {volume: 0}, function(error) {});
+// };
+// exports.play("ufo.mp3", 0.1);
 
 
 

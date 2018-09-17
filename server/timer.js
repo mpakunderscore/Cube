@@ -4,7 +4,9 @@ let gpio = require('./gpio');
 
 let scenario = require('./scenario');
 
-let camera = require('./camera')
+let camera = require('./camera');
+
+let sound = require('./sound');
 
 let gameState = false;
 let time = 0;
@@ -44,13 +46,15 @@ exports.startGame = function () {
     startGameTime();
 
     api.broadcastLog('start');
-}
+};
 
 function stopGame() {
 
     api.broadcastLog('stop');
 
     gameState = false;
+
+    sound.stop();
 }
 
 exports.resetGame = function () {
