@@ -49,6 +49,10 @@ exports.button = function (id) {
     if (id === 1) {
         sound.play('failed.mp3');
     }
+
+    if (id === 'failed') {
+        sound.play('failed.mp3');
+    }
 };
 
 exports.startScenario = function () {
