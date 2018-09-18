@@ -21,8 +21,9 @@ exports.stop = function () {
     console.log("sounds length " + sounds.length);
 
     for (let i = 0; i < sounds.length; i++) {
-        // sounds[i].stop();
-        sounds[i].quit();
+
+        if (sounds[i].running)
+            sounds[i].quit();
     }
 
     sounds = [];
