@@ -11,7 +11,7 @@ let sound = require('./sound');
 let gameState = false;
 let time = 0;
 
-let totalDefault = 1800;
+let totalDefault = 900;
 let totalCurrent = totalDefault;
 
 let photoTime = 240;
