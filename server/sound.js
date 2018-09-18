@@ -17,6 +17,8 @@ exports.play = function (name) {
 
 exports.stop = function () {
 
+    console.log("sounds length" + sounds.length);
+
     for (let i = 0; i < sounds.length; i++) {
         sounds[i].stop();
     }
