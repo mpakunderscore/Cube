@@ -24,6 +24,6 @@ exports.stop = function () {
     sounds = [];
 };
 
-let configuration = {};
-let omxplayer = new OMXPlayer(configuration);
-omxplayer.start('/home/pi/cube/sounds/ufo.mp3', function (error) {});
+// let configuration = {};
+// let omxplayer = new OMXPlayer(configuration);
+// omxplayer.start('/home/pi/cube/sounds/ufo.mp3', function (error) {});
