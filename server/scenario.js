@@ -66,7 +66,8 @@ exports.startScenario = function () {
     }
 
     sound.play('1_start.mp3');
-
+    setTimeout(function(){ changeState(2, true); }, 20000);
+    
     return true;
 };
 

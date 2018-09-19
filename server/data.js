@@ -1,7 +1,7 @@
 exports.gpioState = {
 
     "1": {id: "1", pid: "5", name: "Магнитный замок вход", state: true, type: true},
-    "2": {id: "2", pid: "6", name: "Общее освещение", state: true, type: true},
+    "2": {id: "2", pid: "6", name: "Общее освещение", state: false, type: true},
     "3": {id: "3", pid: "13", name: "УФ-лампа", state: false, type: true},
     "4": {id: "4", pid: "19", name: "Замок арфа", state: true, type: true},
     "6": {id: "6", pid: "12", name: "Замок кодовый сейф", state: true, type: true},
