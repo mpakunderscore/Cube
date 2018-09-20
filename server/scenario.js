@@ -165,6 +165,7 @@ exports.checkScenario = function () {
 
     if (gpio.pins[15].state === true) {
         // меняем проигрываемый трек
+        sound.stop();
         sound.play('8_final.mp3');
         changeState(2, false);
 
