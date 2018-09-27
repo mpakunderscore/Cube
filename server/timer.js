@@ -48,18 +48,18 @@ exports.startGame = function () {
     api.broadcastLog('start');
 };
 
-function stopGame() {
+exports.stopGame = function () {
 
     api.broadcastLog('stop');
 
     gameState = false;
 
     sound.stop();
-}
+};
 
 exports.resetGame = function () {
 
-    stopGame();
+    exports.stopGame();
 
     api.broadcastLog('reset');
 
@@ -97,7 +97,7 @@ function startGameTime() {
 
             api.broadcastLog('timeout');
 
-            stopGame();
+            exports.stopGame();
 
             scenario.endTimeScenario();
         }
@@ -123,7 +123,7 @@ exports.setTime = function (t) {
     api.broadcastLog('set total time: ' + fromSec(totalDefault))
 
     // $('#total').text(fromSec(totalDefault));
-}
+};
 
 function fromSec(time) {
 

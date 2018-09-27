@@ -170,6 +170,11 @@ exports.checkScenario = function () {
         changeState(2, false);
 
         // wait(10)
-        setTimeout(function(){ changeState(1, false); }, 12000);
+        setTimeout( function() {
+
+            changeState(1, false);
+            timer.stopGame();
+
+        }, 12000);
     }
 };
