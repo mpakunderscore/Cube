@@ -8,11 +8,15 @@ exports.play = function (name) {
 
     api.broadcastLog('play ' + name);
 
-    // let configuration = {};
-    // let omxplayer = new OMXPlayer(configuration);
-    // omxplayer.start('/home/pi/cube/sounds/' + name, function (error) {});
-
     let omxplayer = Omx('/home/pi/cube/sounds/' + name);
+    sounds.push(omxplayer);
+};
+
+exports.play = function (name, volume) {
+
+    api.broadcastLog('play ' + name);
+
+    let omxplayer = Omx('/home/pi/cube/sounds/' + name, 'local', false, volume);
     sounds.push(omxplayer);
 };
 
@@ -28,7 +32,3 @@ exports.stop = function () {
 
     sounds = [];
 };
-
-// let configuration = {};
-// let omxplayer = new OMXPlayer(configuration);
-// omxplayer.start('/home/pi/cube/sounds/ufo.mp3', function (error) {});
