@@ -17,6 +17,8 @@ exports.send = function (data) {
 
     // aGVsbG8gd29ybGQ=
 
+    mailOptions.subject = new Date().toJSON().slice(0,19).replace(/-/g,'/').replace(/T/g,' ');
+
     transporter.sendMail(mailOptions, function(error, info){
 
         if (error) {
