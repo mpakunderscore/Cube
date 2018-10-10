@@ -13,6 +13,7 @@ exports.send = function (data) {
     // const bytes = new Uint8Array(data);
     // camera1.src = 'data:image/jpeg;base64,' + base64ArrayBuffer(bytes);
 
+    mailOptions.attachments = [];
     mailOptions.attachments.push({path: 'data:image/jpeg;base64,' + base64ArrayBuffer(data)})
 
     // aGVsbG8gd29ybGQ=
@@ -34,8 +35,8 @@ let mailOptions = {
     from: 'qf.cube@gmail.com',
     to: ['mayacubequest@gmail.com'],
     subject: new Date().toJSON().slice(0,19).replace(/-/g,'/').replace(/T/g,' '),
-    text: '',
-    attachments: []
+    attachments: [],
+    text: ''
 };
 
 // attachments: [
