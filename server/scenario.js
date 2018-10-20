@@ -46,13 +46,30 @@ function changeState(id, state) {
 
 exports.button = function (id) {
 
-    if (id === 1) {
-        sound.play('failed.mp3');
+    if (id === 'arfa') {
+        sound.play('pod-arfa.mp3');
     }
 
-    if (id === 'failed') {
-        sound.play('failed.mp3');
+    if (id === 'drakon') {
+        sound.play('pod-drakon.mp3');
     }
+    
+    if (id === 'pazl') {
+        sound.play('pod-pazl.mp3');
+    }
+    
+    if (id === 'steny') {
+        sound.play('pod-steny.mp3');
+    }
+    
+    if (id === 'strazh') {
+        sound.play('pod-strazh.mp3');
+    }
+    
+    if (id === 'zvezdy') {
+        sound.play('pod-zvezdy.mp3');
+    }
+    
 };
 
 exports.startScenario = function () {
@@ -67,6 +84,9 @@ exports.startScenario = function () {
 
     sound.play('1_start.mp3');
     setTimeout(function(){ changeState(2, true); }, 28000);
+    setTimeout(function(){ sound.play('5min.mp3'); }, 600000);
+    setTimeout(function(){ sound.play('10min.mp3'); }, 300000);
+
     
     return true;
 };
